@@ -1,0 +1,9 @@
+en:
+  layouts:
+    application:
+      viet_nam: &viet_nam "Việt Nam"
+  shared:
+    header:
+      title: *viet_nam
+      header_title: *viet_nam
+      search: "Tìm kiếm"

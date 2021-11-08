@@ -1,48 +1,59 @@
 module Admin
   class CategoriesController < Admin::BaseController
-    before_action :set_category, only: [:show, :edit, :update, :destroy]
+    before_action :category, only: [:show, :edit, :update, :destroy]
 
-    # GET /categories
-    # GET /categories.json
     def index
       @categories = Category.all
     end
 
-    # GET /categories/1
-    # GET /categories/1.json
-    def show
-    end
+    def show; end
 
-    # GET /categories/new
     def new
       @category = Category.new
       @form = CategoryForm.new(@category)
     end
 
-    # GET /categories/1/edit
     def edit
+      @form = CategoryForm.new(@category, sanitize_params)
     end
 
-    # POST /categories
-    # POST /categories.json
     def create
-      @category = Category.new(category_params)
+      @category = Category.new
+      @form = CategoryForm.new(@category, category_params)
 
-      respond_to do |format|
-        if @category.save
-          format.html { redirect_to admin_categories_path, notice: 'Category was successfully created.' }
-          format.json { render :show, status: :created, location: @category }
-        else
-          format.html { render :new }
-          format.json { render json: @category.errors, status: :unprocessable_entity }
-        end
+      if @form.save
+        flash[:success] = t(".created")
+        redirect_to admin_categories_path
+      else
+        flash[:danger] = t(".created_false")
+        render :new
+      end
+    end
+
+    def update
+      @form = CategoryForm.new(@category, category_params)
+
+      if @form.save
+        flash[:success] = t(".updated")
+        redirect_to admin_categories_path
+      else
+        flash[:danger] = t(".updated_false")
+        render :new
       end
     end
 
     private
 
+    def sanitize_params
+      category.serializable_hash(only: CategoryForm::FORM_FIELDS).symbolize_keys
+    end
+
     def category_params
-      params.require(:category).permit(:name, :description)
+      params.require(:category).permit(CategoryForm::FORM_FIELDS)
+    end
+
+    def category
+      @category ||= Category.friendly.find(params[:id])
     end
   end
 end

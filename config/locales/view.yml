@@ -1,6 +1,10 @@
 en:
   dictionary:
-    submit: &submit 'Lưu lại'
+    submit: &submit "Lưu lại"
+    created: &created "Tạo mới thành công"
+    updated: &updated "Cập nhật thành công"
+    created_false: &created_false "Tạo mới không thành công"
+    updated_false: &updated_false "Cập nhật không thành công"
   layouts:
     application:
       home: "Trang chủ"
@@ -20,6 +24,12 @@ en:
       categories: *category
   admin:
     categories:
+      create:
+        created: *created
+        created_false: *created_false
+      update:
+        updated: *updated
+        updated_false: *updated_false
       form:
         new: *new
         submit: *submit

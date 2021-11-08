@@ -19,7 +19,7 @@ SimpleForm.setup do |config|
   config.boolean_label_class = "form-check-label"
 
   # How the label text should be generated altogether with the required text.
-  config.label_text = ->(label, required, _explicit_label) { "#{label} #{required}" }
+  config.label_text = ->(label, _required, _explicit_label) { label.to_s }
 
   # Define the way to render check boxes / radio buttons with labels.
   config.boolean_style = :inline
@@ -40,8 +40,8 @@ SimpleForm.setup do |config|
   config.error_method = :to_sentence
 
   # add validation classes to `input_field`
-  config.input_field_error_class = "is-invalid"
-  config.input_field_valid_class = "is-valid"
+  config.input_field_error_class = ""
+  config.input_field_valid_class = ""
 
   # vertical forms
   #
@@ -56,8 +56,8 @@ SimpleForm.setup do |config|
     b.optional :min_max
     b.optional :readonly
     b.use :label
-    b.use :input, class: "form-control", error_class: "is-invalid", valid_class: "is-valid"
-    b.use :full_error, wrap_with: { tag: "div", class: "invalid-feedback" }
+    b.use :input, class: "form-control", error_class: "", valid_class: ""
+    b.use :full_error, wrap_with: { tag: "div", class: "invalid-feedback d-block" }
     b.use :hint, wrap_with: { tag: "small", class: "form-text text-muted" }
   end
 

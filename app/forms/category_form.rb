@@ -1,10 +1,13 @@
 class CategoryForm < BaseForm
-  FORM_FIELDS = %i[name description].freeze
-  MODEL_NAME = 'Category'
+  FORM_FIELDS = [:name, :description].freeze
+  MODEL_NAME = "Category".freeze
 
   FORM_FIELDS.each do |f|
     attr_accessor f
   end
+
+  validates :name, presence: true, length: { maximum: 100 }
+  validates :description, length: { maximum: 500 }
 
   attr_reader :category
 
@@ -21,6 +24,15 @@ class CategoryForm < BaseForm
   end
 
   def persist!
-    category.update!(attributes)
+    category.update!(category_params)
+  end
+
+  private
+
+  def category_params
+    {
+      name: name,
+      description: description
+    }
   end
 end

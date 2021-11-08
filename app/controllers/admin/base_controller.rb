@@ -1,5 +1,5 @@
 module Admin
   class BaseController < ApplicationController
-    layout 'admin'
+    layout "admin"
   end
 end

@@ -3,6 +3,7 @@ class BaseForm
 
   def save
     return false if invalid?
+
     persist!
     true
   rescue ActiveRecord::RecordInvalid => e

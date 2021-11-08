@@ -1,0 +1,7 @@
+.animated.fadeIn#flash
+  - flash.each do |key, value|
+    - key = key == "alert" ? "warning" : key
+    - next if value.blank?
+    div class=("alert alert-#{key} alert-dismissible fade show mb-1") role="#{key}"
+      = value.html_safe
+      button.btn-close[type="button" data-bs-dismiss="alert" aria-label="Close"]

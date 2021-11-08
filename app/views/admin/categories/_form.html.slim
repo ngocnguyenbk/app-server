@@ -1,0 +1,17 @@
+= simple_form_for form, html: { class: 'card' } do |f|
+  .card-header
+    h4.card-title.font-weight-bold = t(".new")
+  .card-body
+    .row.mb-3
+      .col-2
+        = f.label :name, class: 'col-form-label'
+      .col-4
+        = f.input :name, label: false
+    .row.mb-3
+      .col-2
+        = f.label :description, class: 'col-form-label'
+      .col-6
+        = f.input :description, as: :text, input_html: { rows: 5 }, label: false
+    .row.mb-3.justify-content-end
+      .col-2
+        = f.submit t('.submit'), class: 'btn btn-primary btn-sm'

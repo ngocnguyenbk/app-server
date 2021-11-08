@@ -1,0 +1,8 @@
+en:
+  errors: &errors
+    format: '%{attribute} %{message}'
+  activemodel:
+    attributes:
+      category:
+        name: "Tên thể loại"
+        description: "Mô tả"

@@ -70,8 +70,13 @@ GEM
     crass (1.0.6)
     erubi (1.10.0)
     ffi (1.15.4)
+    friendly_id (5.4.2)
+      activerecord (>= 4.0.0)
     globalid (0.5.2)
       activesupport (>= 5.0)
+    gretel (4.3.0)
+      actionview (>= 5.1, < 7.0)
+      railties (>= 5.1, < 7.0)
     i18n (1.8.11)
       concurrent-ruby (~> 1.0)
     jbuilder (2.11.2)
@@ -219,6 +224,8 @@ PLATFORMS
 
 DEPENDENCIES
   bootsnap (>= 1.4.4)
+  friendly_id (~> 5.4.0)
+  gretel
   jbuilder (~> 2.7)
   listen (~> 3.3)
   mysql2 (~> 0.5)

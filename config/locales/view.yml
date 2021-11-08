@@ -1,9 +1,25 @@
 en:
+  dictionary:
+    submit: &submit 'Lưu lại'
   layouts:
     application:
+      home: "Trang chủ"
       viet_nam: &viet_nam "Việt Nam"
+      category: &category "Thể loại"
+      new: &new "Tạo mới"
+    admin:
+      home: "Trang chủ"
+      viet_nam: &viet_nam "Việt Nam"
+      category: &category "Thể loại"
+      new: &new "Tạo mới"
   shared:
     header:
       title: *viet_nam
       header_title: *viet_nam
       search: "Tìm kiếm"
+      categories: *category
+  admin:
+    categories:
+      form:
+        new: *new
+        submit: *submit

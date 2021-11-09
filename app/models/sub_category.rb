@@ -1,7 +1,7 @@
-class Category < ApplicationRecord
+class SubCategory < ActiveRecord::Base
   extend FriendlyId
   prepend GenerateSlug
 
-  has_many :sub_categories, dependent: :destroy
+  belongs_to :category
   friendly_id :name, use: :slugged
 end

@@ -25,6 +25,7 @@ vi:
       home: "Trang chủ"
       viet_nam: &viet_nam "Việt Nam"
       category: &category "Thể loại"
+      sub_category: &sub_category "Danh mục phụ"
       new: &new "Tạo mới"
   shared:
     header:
@@ -38,6 +39,7 @@ vi:
         list: "Danh sách thể loại"
         name: "Tên thể loại"
         description: "Mô tả"
+        sub_category: &sub_category
         create: *create
         edit: *edit
         delete: *delete

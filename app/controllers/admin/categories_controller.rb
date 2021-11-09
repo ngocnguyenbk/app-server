@@ -4,7 +4,7 @@ module Admin
     before_action :package_name, only: [:new, :edit, :create, :update]
 
     def index
-      @package_name ||= "categories/index"
+      @package_name = "categories/index"
       @categories = Category.all
     end
 

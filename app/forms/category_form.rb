@@ -14,6 +14,8 @@ class CategoryForm < BaseForm
 
   delegate :id, :persisted?, to: :category
 
+  alias record category
+
   def self.name
     MODEL_NAME
   end

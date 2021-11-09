@@ -1,12 +1,10 @@
-# frozen_string_literal: true
-
 class UniquenessValidator < ActiveRecord::Validations::UniquenessValidator
   def initialize(klass)
     super
     @klass = options[:model] if options[:model]
   end
 
-  # rubocop:disable Metrics/CyclomaticComplexity, Metrics/PerceivedComplexity, Style/GuardClause
+  # rubocop:disable Metrics/CyclomaticComplexity, Metrics/PerceivedComplexity, Style/GuardClause, Metrics/AbcSize
   def validate_each(record, attribute, value)
     if !options[:model] && record.class.ancestors.exclude?(ActiveRecord::Base)
       raise ArgumentError, "Unknown validator: 'UniquenessValidator'"
@@ -26,7 +24,7 @@ class UniquenessValidator < ActiveRecord::Validations::UniquenessValidator
       super
       if record.errors[attribute].any?
         record_org.errors.add(attribute_org, :taken,
-                              options.except(:case_sensitive, :scope).merge(value: value))
+                              **options.except(:case_sensitive, :scope).merge(value: value))
       end
     end
   end
@@ -39,5 +37,5 @@ class UniquenessValidator < ActiveRecord::Validations::UniquenessValidator
       record.public_send("#{scope_item}=", scope_value)
     end
   end
-  # rubocop:enable Metrics/CyclomaticComplexity, Metrics/PerceivedComplexity, Style/GuardClause
+  # rubocop:enable Metrics/CyclomaticComplexity, Metrics/PerceivedComplexity, Style/GuardClause, Metrics/AbcSize
 end

@@ -24,7 +24,7 @@ module Admin
       @form = CategoryForm.new(@category, category_params)
 
       if @form.save
-        flash.now[:success] = t(".created")
+        flash[:success] = t(".created")
         redirect_to admin_categories_path
       else
         flash.now[:danger] = t(".created_false")
@@ -36,11 +36,11 @@ module Admin
       @form = CategoryForm.new(@category, category_params)
 
       if @form.save
-        flash.now[:success] = t(".updated")
+        flash[:success] = t(".updated")
         redirect_to admin_categories_path
       else
         flash.now[:danger] = t(".updated_false")
-        render :new
+        render :edit
       end
     end
 

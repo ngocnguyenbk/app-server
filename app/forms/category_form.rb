@@ -7,6 +7,7 @@ class CategoryForm < BaseForm
   end
 
   validates :name, presence: true, length: { maximum: 100 }
+  validates :name, uniqueness: { case_sensitive: true, model: Category }
   validates :description, length: { maximum: 500 }
 
   attr_reader :category

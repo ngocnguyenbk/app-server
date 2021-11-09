@@ -5,6 +5,11 @@ en:
     updated: &updated "Cập nhật thành công"
     created_false: &created_false "Tạo mới không thành công"
     updated_false: &updated_false "Cập nhật không thành công"
+    create: &create "Tạo mới"
+    edit: &edit "Chỉnh sửa"
+    delete: &delete "Xóa"
+    confirm: &confirm "Xác nhận"
+    back: &back "Quay lại"
   layouts:
     application:
       home: "Trang chủ"
@@ -24,6 +29,14 @@ en:
       categories: *category
   admin:
     categories:
+      index:
+        list: "Danh sách thể loại"
+        name: "Tên thể loại"
+        description: "Mô tả"
+        create: *create
+        edit: *edit
+        delete: *delete
+        confirm: *confirm
       create:
         created: *created
         created_false: *created_false
@@ -33,3 +46,4 @@ en:
       form:
         new: *new
         submit: *submit
+        back: *back

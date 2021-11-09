@@ -1,14 +1,14 @@
 nav.navbar.navbar-expand-lg.navbar-light.bg-light
   .container
     = link_to root_path, class: "navbar-brand d-flex"
-      = image_pack_tag("flower.png", size: "30x24", class: "align-top me-2", title: t(".title"))
+      = image_pack_tag("flower-icon.png", size: "30x24", class: "align-top me-2", title: t(".title"))
       .fw-bold = t(".header_title")
     button.navbar-toggler[type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggler"]
       span.navbar-toggler-icon
     #navbarToggler.collapse.navbar-collapse
       ul.navbar-nav.me-auto.mb-2.mb-lg-0
         li.nav-item
-          = link_to "Menu 1", root_path, class: "nav-link active rounded"
+          = link_to t(".categories"), admin_categories_path, class: "nav-link active rounded"
         li.nav-item
           = link_to "Menu 2", root_path, class: "nav-link"
         li.nav-item

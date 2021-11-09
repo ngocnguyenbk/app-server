@@ -9,9 +9,11 @@ html
     = stylesheet_link_tag "application", media: "all"
     = stylesheet_pack_tag "application", media: "all"
     = javascript_pack_tag "application"
+    = javascript_pack_tag @package_name if @package_name
     = favicon_pack_tag "flower-icon.png"
   body[data-controller="#{controller_path}" data-action="#{action_name}"]
     = render "shared/header"
     = breadcrumbs separator: " / "
     .container
+      = render "shared/flash"
       = yield

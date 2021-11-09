@@ -1,0 +1,15 @@
+@import "header";
+@import "pages/admin/categories.scss";
+
+.breadcrumbs {
+  margin-bottom: 2rem;
+}
+
+#flash {
+  .alert {
+    padding: 0.5rem 1rem;
+  }
+  .btn-close {
+    padding: 0.8rem 1rem;
+  }
+}

@@ -10,8 +10,9 @@ gem "sass-rails", ">= 6"
 gem "simple_form"
 gem "slim"
 
+gem "friendly_id", "~> 5.4.0"
+gem "gretel"
 gem "jbuilder", "~> 2.7"
-gem "turbolinks", "~> 5"
 gem "webpacker", "~> 5.0"
 
 gem "bootsnap", ">= 1.4.4", require: false

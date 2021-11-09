@@ -1,0 +1,12 @@
+vi:
+  errors: &errors
+    format: "%{attribute} %{message}"
+    messages:
+      blank: "không được để trống"
+      too_long: "không quá %{count} ký tự"
+      taken: "đã được sử dụng"
+  activemodel:
+    attributes:
+      category:
+        name: "Tên thể loại"
+        description: "Mô tả"

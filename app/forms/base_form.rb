@@ -7,9 +7,11 @@ class BaseForm
     persist!
     true
   rescue ActiveRecord::RecordInvalid => e
+    Rails.logger.error(e.message)
     e.record.errors
     false
   rescue StandardError => e
+    Rails.logger.error(e.message)
     errors.add(:base, e.message)
     false
   end

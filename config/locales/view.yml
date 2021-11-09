@@ -5,11 +5,16 @@ en:
     updated: &updated "Cập nhật thành công"
     created_false: &created_false "Tạo mới không thành công"
     updated_false: &updated_false "Cập nhật không thành công"
+    destroyed: &destroyed "Xóa thành công"
+    destroyed_false: &destroyed_false "Xóa không thành công"
     create: &create "Tạo mới"
     edit: &edit "Chỉnh sửa"
     delete: &delete "Xóa"
     confirm: &confirm "Xác nhận"
     back: &back "Quay lại"
+    msg_create: &msg_create "Bạn có chắc chắn muốn tạo?"
+    msg_update: &msg_update "Bạn có chắc chắn muốn chỉnh sửa?"
+    msg_delele: &msg_delele "Bạn có chắc chắn muốn xóa?"
   layouts:
     application:
       home: "Trang chủ"
@@ -36,14 +41,28 @@ en:
         create: *create
         edit: *edit
         delete: *delete
-        confirm: *confirm
+        title_modal: "Xóa thể loại"
+        body_modal: *msg_delele
+        btn_modal: *confirm
+      new:
+        title: *new
+        title_modal: "Tạo mới thể loại"
+        body_modal: *msg_create
+        btn_modal: *confirm
+      edit:
+        title: *edit
+        title_modal: "Chỉnh sửa thể loại"
+        body_modal: *msg_update
+        btn_modal: *confirm
       create:
         created: *created
         created_false: *created_false
       update:
         updated: *updated
         updated_false: *updated_false
+      destroy:
+        destroyed: *destroyed
+        destroyed_false: *destroyed_false
       form:
-        new: *new
         submit: *submit
         back: *back

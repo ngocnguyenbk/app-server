@@ -1,8 +1,10 @@
 module Admin
   class CategoriesController < Admin::BaseController
     before_action :category, only: [:show, :edit, :update, :destroy]
+    before_action :package_name, only: [:new, :edit, :create, :update]
 
     def index
+      @package_name ||= "categories/index"
       @categories = Category.all
     end
 
@@ -22,10 +24,10 @@ module Admin
       @form = CategoryForm.new(@category, category_params)
 
       if @form.save
-        flash[:success] = t(".created")
+        flash.now[:success] = t(".created")
         redirect_to admin_categories_path
       else
-        flash[:danger] = t(".created_false")
+        flash.now[:danger] = t(".created_false")
         render :new
       end
     end
@@ -42,7 +44,21 @@ module Admin
       end
     end
 
+    def destroy
+      if category.destroy
+        flash[:info] = t(".destroyed")
+      else
+        flash[:danger] = t(".destroyed_false")
+      end
+
+      head :ok
+    end
+
     private
+
+    def package_name
+      @package_name ||= "categories/create"
+    end
 
     def sanitize_params
       category.serializable_hash(only: CategoryForm::FORM_FIELDS).symbolize_keys

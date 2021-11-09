@@ -1,2 +1,4 @@
 - breadcrumb :category_new
-= render "form", form: @form, url: admin_categories_path
+= render "form", form: @form, url: admin_categories_path, title: t(".title"),
+                              title_modal: t(".title_modal"), body_modal: t(".body_modal"),
+                              btn_modal: t(".btn_modal")

@@ -1,17 +1,21 @@
-= simple_form_for form, url: url do |f|
+= simple_form_for form, url: url, html: { id: "category-form" } do |f|
   .bg-light.bg-gradient.p-2
     .d-flex.justify-content-between.mb-4
-      h5.card-title.font-weight-bold = t(".new")
+      h5.card-title.font-weight-bold = title
       = link_to t(".back"), admin_categories_path, class: "btn btn-primary btn-sm"
     .d-flex.mb-3
       .col-2
-        = f.label :name, class: 'col-form-label'
+        = f.label :name, class: "col-form-label"
       .col-4
         = f.input :name, label: false
     .d-flex.mb-3
       .col-2
-        = f.label :description, class: 'col-form-label'
+        = f.label :description, class: "col-form-label"
       .col-6
         = f.input :description, as: :text, input_html: { rows: 5 }, label: false
     .d-flex.justify-content-end
-      = f.submit t('.submit'), class: 'btn btn-primary btn-sm'
+      = f.submit t(".submit"), id: "save-button", class: "btn btn-primary btn-sm"
+
+= render "shared/modal_confirm", modal: { id: "category-modal", class_btn: "btn-primary",
+                                          title_modal: title_modal, body_modal: body_modal,
+                                          btn_modal: btn_modal, id_btn: "btn-confirm-category" }

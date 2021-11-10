@@ -26,6 +26,7 @@ vi:
       viet_nam: &viet_nam "Việt Nam"
       category: &category "Thể loại"
       sub_category: &sub_category "Danh mục phụ"
+      sub_categories: &sub_categories "Danh mục phụ"
       new: &new "Tạo mới"
   shared:
     header:
@@ -33,6 +34,7 @@ vi:
       header_title: *viet_nam
       search: "Tìm kiếm"
       categories: *category
+      sub_categories: *sub_categories
   admin:
     categories:
       index:
@@ -75,6 +77,16 @@ vi:
         description: "Mô tả"
         category: "Thể loại"
         create: *create
+        edit: *edit
+        delete: *delete
+        title_modal: "Xóa danh mục"
+        body_modal: *msg_delele
+        btn_modal: *confirm
+      sub_categories:
+        list: "Danh sách danh mục"
+        name: "Tên danh mục"
+        description: "Mô tả"
+        category: "Thể loại"
         edit: *edit
         delete: *delete
         title_modal: "Xóa danh mục"

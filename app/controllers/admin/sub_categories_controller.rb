@@ -1,7 +1,7 @@
 module Admin
   class SubCategoriesController < Admin::BaseController
     before_action :sub_category, only: [:edit, :update, :destroy]
-    before_action :category
+    before_action :category, except: :sub_categories
     before_action :package_name, only: [:new, :edit, :create, :update]
 
     def index
@@ -53,6 +53,11 @@ module Admin
       end
 
       head :ok
+    end
+
+    def sub_categories
+      @package_name = "sub_categories/index"
+      @sub_categories = SubCategory.all
     end
 
     private

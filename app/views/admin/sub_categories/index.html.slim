@@ -1,0 +1,32 @@
+- breadcrumb :sub_categories, @category
+.bg-light.bg-gradient
+  .d-flex.justify-content-between.p-2.mb-4
+    h5.ps-2 = t(".list")
+    = link_to t(".create"), new_admin_category_sub_category_path, class: "btn btn-primary btn-sm"
+  table.table.table-hover.table-borderless
+    thead
+      tr
+        th scope="col"
+          = t(".name")
+        th scope="col"
+          = t(".description")
+        th scope="col"
+          = t(".category")
+        th scope="col"
+    tbody
+      - @sub_categories.each do |sub_category|
+        tr
+          td
+            = sub_category.name
+          td
+            = sub_category.description
+          td
+            = sub_category.category_name
+          td.text-end
+            = link_to t(".edit"), edit_admin_category_sub_category_path(@category, sub_category), class: "btn btn-primary btn-sm me-2"
+            = link_to t(".delete"), "#", class: "btn btn-danger btn-sm btn-delete-sub-category",
+                                         data: { url: admin_category_sub_category_path(@category, sub_category) }
+
+= render "shared/modal_confirm", modal: { id: "delete-sub-category-modal", class_btn: "btn-danger",
+                                          title_modal: t(".title_modal"), body_modal: t(".body_modal"),
+                                          btn_modal: t(".btn_modal"), id_btn: "btn-confirm-delete-sub-category" }

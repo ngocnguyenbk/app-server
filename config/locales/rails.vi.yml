@@ -10,3 +10,7 @@ vi:
       category:
         name: "Tên thể loại"
         description: "Mô tả"
+      sub_category:
+        name: "Tên danh mục"
+        category_id: "Thể loại"
+        description: "Mô tả"

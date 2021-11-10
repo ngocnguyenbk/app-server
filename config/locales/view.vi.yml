@@ -25,6 +25,7 @@ vi:
       home: "Trang chủ"
       viet_nam: &viet_nam "Việt Nam"
       category: &category "Thể loại"
+      sub_category: &sub_category "Danh mục phụ"
       new: &new "Tạo mới"
   shared:
     header:
@@ -38,6 +39,7 @@ vi:
         list: "Danh sách thể loại"
         name: "Tên thể loại"
         description: "Mô tả"
+        sub_category: *sub_category
         create: *create
         edit: *edit
         delete: *delete
@@ -60,6 +62,40 @@ vi:
       update:
         updated: *updated
         updated_false: *updated_false
+      destroy:
+        destroyed: *destroyed
+        destroyed_false: *destroyed_false
+      form:
+        submit: *submit
+        back: *back
+    sub_categories:
+      index:
+        list: "Danh sách danh mục"
+        name: "Tên danh mục"
+        description: "Mô tả"
+        category: "Thể loại"
+        create: *create
+        edit: *edit
+        delete: *delete
+        title_modal: "Xóa danh mục"
+        body_modal: *msg_delele
+        btn_modal: *confirm
+      new:
+        title: *new
+        title_modal: "Tạo mới danh mục phụ"
+        body_modal: *msg_create
+        btn_modal: *confirm
+      edit:
+        title: *edit
+        title_modal: "Chỉnh sửa danh mục"
+        body_modal: *msg_update
+        btn_modal: *confirm
+      update:
+        updated: *updated
+        updated_false: *updated_false
+      create:
+        created: *created
+        created_false: *created_false
       destroy:
         destroyed: *destroyed
         destroyed_false: *destroyed_false

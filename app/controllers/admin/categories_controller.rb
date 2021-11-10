@@ -11,17 +11,17 @@ module Admin
     def show; end
 
     def new
-      @category = Category.new
-      @form = CategoryForm.new(@category)
+      category = Category.new
+      @form = CategoryForm.new(category)
     end
 
     def edit
-      @form = CategoryForm.new(@category, sanitize_params)
+      @form = CategoryForm.new(category, sanitize_params)
     end
 
     def create
-      @category = Category.new
-      @form = CategoryForm.new(@category, category_params)
+      category = Category.new
+      @form = CategoryForm.new(category, category_params)
 
       if @form.save
         flash[:success] = t(".created")
@@ -33,7 +33,7 @@ module Admin
     end
 
     def update
-      @form = CategoryForm.new(@category, category_params)
+      @form = CategoryForm.new(category, category_params)
 
       if @form.save
         flash[:success] = t(".updated")

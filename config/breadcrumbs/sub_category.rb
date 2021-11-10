@@ -3,12 +3,12 @@ crumb :sub_categories do |category|
   parent :categories
 end
 
-# crumb :category do |category|
-#   link category.name, edit_admin_category_path(category)
-#   parent :categories
-# end
+crumb :sub_category do |category, sub_category|
+  link sub_category.name
+  parent :sub_categories, category
+end
 
-# crumb :category_new do
-#   link t(".new")
-#   parent :categories
-# end
+crumb :sub_category_new do |category|
+  link t(".new")
+  parent :sub_categories, category
+end

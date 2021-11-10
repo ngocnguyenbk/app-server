@@ -12,17 +12,17 @@ module Admin
     def show; end
 
     def new
-      @sub_category = category.sub_categories.new
-      @form = SubCategoryForm.new(@sub_category, category)
+      sub_category = category.sub_categories.new
+      @form = SubCategoryForm.new(sub_category, category)
     end
 
     def edit
-      @form = SubCategoryForm.new(@sub_category, category, sanitize_params)
+      @form = SubCategoryForm.new(sub_category, category, sanitize_params)
     end
 
     def create
-      @sub_category = category.sub_categories.new
-      @form = SubCategoryForm.new(@sub_category, category, sub_category_params)
+      sub_category = category.sub_categories.new
+      @form = SubCategoryForm.new(sub_category, category, sub_category_params)
 
       if @form.save
         flash[:success] = t(".created")
@@ -34,7 +34,7 @@ module Admin
     end
 
     def update
-      @form = SubCategoryForm.new(@sub_category, category, sub_category_params)
+      @form = SubCategoryForm.new(sub_category, category, sub_category_params)
 
       if @form.save
         flash[:success] = t(".updated")

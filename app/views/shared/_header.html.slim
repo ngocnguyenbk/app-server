@@ -8,10 +8,8 @@ nav.navbar.navbar-expand-lg.navbar-light.bg-light
     #navbarToggler.collapse.navbar-collapse
       ul.navbar-nav.me-auto.mb-2.mb-lg-0
         li.nav-item
-          = link_to t(".categories"), admin_categories_path, class: "nav-link active rounded"
+          = active_link_to(t(".categories"), admin_categories_path)
         li.nav-item
-          = link_to t(".sub_categories"), admin_sub_categories_path, class: "nav-link"
-        li.nav-item
-        = link_to "Menu 3", root_path, class: "nav-link"
+          = active_link_to(t(".sub_categories"), admin_sub_categories_path)
       form.d-flex
         input.form-control.rounded-pill.me-2[type="search" placeholder=t(".search") aria-label="Search"]

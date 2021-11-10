@@ -57,7 +57,7 @@ module Admin
 
     def sub_categories
       @package_name = "sub_categories/index"
-      @sub_categories = SubCategory.all
+      @sub_categories = SubCategory.all.preload(:category)
     end
 
     private

@@ -1,3 +1,9 @@
+#navbarToggler {
+  .dropdown:hover .dropdown-menu {
+    display: block;
+  }
+}
+
 .breadcrumbs {
   padding-left: 1rem;
   a {

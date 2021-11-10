@@ -35,6 +35,12 @@ vi:
       search: "Tìm kiếm"
       categories: *category
       sub_categories: *sub_categories
+    admin_header:
+      title: *viet_nam
+      header_title: *viet_nam
+      search: "Tìm kiếm"
+      categories: *category
+      sub_categories: *sub_categories
   admin:
     categories:
       index:

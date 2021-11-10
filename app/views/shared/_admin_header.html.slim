@@ -7,13 +7,9 @@ nav.navbar.navbar-expand-lg.navbar-light.bg-light
       span.navbar-toggler-icon
     #navbarToggler.collapse.navbar-collapse
       ul.navbar-nav.me-auto.mb-2.mb-lg-0
-        - @categories.each do |category|
-          li.nav-item.dropdown
-            = link_to category.name, category_path(category), class: "nav-link"
-            - if category.sub_categories.exists?
-              ul.dropdown-menu
-                - category.sub_categories.each do |sub_category|
-                  li.dropdown-item
-                    = link_to sub_category.name, sub_category_path(sub_category), class: "nav-link"
+        li.nav-item
+          = active_link_to(t(".categories"), admin_categories_path)
+        li.nav-item
+          = active_link_to(t(".sub_categories"), admin_sub_categories_path)
       form.d-flex
         input.form-control.rounded-pill.me-2[type="search" placeholder=t(".search") aria-label="Search"]

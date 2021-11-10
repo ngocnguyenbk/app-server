@@ -13,7 +13,7 @@ crumb :sub_category_new do |category|
   parent :sub_categories, category
 end
 
-crumb :sub_categories do
+crumb :all_sub_categories do
   link t(".sub_categories")
   parent :root
 end

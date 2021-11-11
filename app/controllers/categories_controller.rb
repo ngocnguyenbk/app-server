@@ -4,7 +4,6 @@ class CategoriesController < ApplicationController
   def show
     @package_name = "categories/show"
     @q = category.sub_categories.ransack(params[:q])
-    @sub_categories = @q.result
   end
 
   private

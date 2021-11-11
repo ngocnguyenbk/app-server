@@ -2,7 +2,7 @@ doctype html
 html
   head
     title
-      = t(".viet_nam")
+      = content_for?(:title_page) ? yield(:title_page) : t(".viet_nam")
     meta[name="viewport" content="width=device-width,initial-scale=1"]
     = csrf_meta_tags
     = csp_meta_tag

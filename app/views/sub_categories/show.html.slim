@@ -1,0 +1,5 @@
+- content_for :title_page do
+  = @sub_category.description
+section.section-sub-category.mt-4
+  .section-sub-category__header
+    = render partial: "header", locals: { sub_category: @sub_category, category: @category, q: @q }

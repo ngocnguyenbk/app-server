@@ -14,6 +14,6 @@ nav.navbar.navbar-expand-lg.navbar-light.bg-light
               ul.dropdown-menu.shadow
                 - category.sub_categories.each do |sub_category|
                   li.dropdown-item
-                    = active_link_to(sub_category.name, sub_category_path(sub_category))
+                    = active_link_to(sub_category.name, category_sub_category_path(category, sub_category))
       form.d-flex
         input.form-control.rounded-pill.me-2[type="search" placeholder=t(".search") aria-label="Search"]

@@ -1,0 +1,12 @@
+.section-category {
+  &__form-search {
+    input::-webkit-input-placeholder {
+      font-size: 0.8rem;
+    }
+    .bi-calendar-check {
+      cursor: pointer;
+      font-size: 1.5rem;
+      color: cornflowerblue;
+    }
+  }
+}

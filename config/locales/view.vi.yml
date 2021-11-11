@@ -15,6 +15,7 @@ vi:
     msg_create: &msg_create "Bạn có chắc chắn muốn tạo?"
     msg_update: &msg_update "Bạn có chắc chắn muốn chỉnh sửa?"
     msg_delele: &msg_delele "Bạn có chắc chắn muốn xóa?"
+    search: &search "Tìm kiếm"
   layouts:
     application:
       home: "Trang chủ"
@@ -32,13 +33,13 @@ vi:
     header:
       title: *viet_nam
       header_title: *viet_nam
-      search: "Tìm kiếm"
+      search: *search
       categories: *category
       sub_categories: *sub_categories
     admin_header:
       title: *viet_nam
       header_title: *viet_nam
-      search: "Tìm kiếm"
+      search: *search
       categories: *category
       sub_categories: *sub_categories
   admin:
@@ -120,3 +121,7 @@ vi:
       form:
         submit: *submit
         back: *back
+  categories:
+    header:
+      view_by_date: "Xem theo ngày"
+      search: "Tìm kiếm trong thể loại"

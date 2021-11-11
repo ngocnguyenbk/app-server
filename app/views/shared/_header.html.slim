@@ -9,11 +9,11 @@ nav.navbar.navbar-expand-lg.navbar-light.bg-light
       ul.navbar-nav.me-auto.mb-2.mb-lg-0
         - @categories.each do |category|
           li.nav-item.dropdown
-            = link_to category.name, category_path(category), class: "nav-link fw-bold"
+            = active_link_to(category.name, category_path(category), class: "fw-bold")
             - if category.sub_categories.present?
-              ul.dropdown-menu
+              ul.dropdown-menu.shadow
                 - category.sub_categories.each do |sub_category|
                   li.dropdown-item
-                    = link_to sub_category.name, sub_category_path(sub_category), class: "nav-link"
+                    = active_link_to(sub_category.name, sub_category_path(sub_category))
       form.d-flex
         input.form-control.rounded-pill.me-2[type="search" placeholder=t(".search") aria-label="Search"]

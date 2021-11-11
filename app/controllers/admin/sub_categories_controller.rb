@@ -5,7 +5,7 @@ module Admin
     before_action :package_name, only: [:new, :edit, :create, :update]
 
     def index
-      @package_name = "sub_categories/index"
+      @package_name = "admin/sub_categories/index"
       @sub_categories = category.sub_categories
     end
 
@@ -56,14 +56,14 @@ module Admin
     end
 
     def sub_categories
-      @package_name = "sub_categories/index"
+      @package_name = "admin/sub_categories/index"
       @sub_categories = SubCategory.all.preload(:category)
     end
 
     private
 
     def package_name
-      @package_name ||= "sub_categories/create"
+      @package_name ||= "admin/sub_categories/create"
     end
 
     def category

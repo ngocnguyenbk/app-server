@@ -10,7 +10,7 @@ nav.navbar.navbar-expand-lg.navbar-light.bg-light
         - @categories.each do |category|
           li.nav-item.dropdown
             = link_to category.name, category_path(category), class: "nav-link fw-bold"
-            - if category.sub_categories.exists?
+            - if category.sub_categories.present?
               ul.dropdown-menu
                 - category.sub_categories.each do |sub_category|
                   li.dropdown-item

@@ -1,5 +1,4 @@
 @import "header";
-@import "pages/admin/categories.scss";
 
 .breadcrumbs {
   margin-bottom: 2rem;
@@ -12,4 +11,18 @@
   .btn-close {
     padding: 0.8rem 1rem;
   }
+}
+.inner-icon {
+  position: relative;
+}
+.inner-icon .bi {
+  position: absolute;
+  padding: 10px;
+  pointer-events: none;
+}
+.left-icon .bi {
+  left: 0px;
+}
+.right-icon .bi {
+  right: 10px;
 }

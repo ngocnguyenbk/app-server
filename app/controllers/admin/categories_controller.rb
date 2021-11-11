@@ -4,7 +4,7 @@ module Admin
     before_action :package_name, only: [:new, :edit, :create, :update]
 
     def index
-      @package_name = "categories/index"
+      @package_name = "admin/categories/index"
       @categories = Category.all
     end
 
@@ -57,7 +57,7 @@ module Admin
     private
 
     def package_name
-      @package_name ||= "categories/create"
+      @package_name ||= "admin/categories/create"
     end
 
     def sanitize_params

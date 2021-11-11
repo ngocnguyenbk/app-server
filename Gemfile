@@ -13,6 +13,7 @@ gem "slim"
 gem "friendly_id", "~> 5.4.0"
 gem "gretel"
 gem "jbuilder", "~> 2.7"
+gem "ransack"
 gem "webpacker", "~> 5.0"
 
 gem "bootsnap", ">= 1.4.4", require: false
@@ -29,9 +30,9 @@ group :development do
   gem "brakeman"
   gem "listen", "~> 3.3"
   gem "rack-mini-profiler", "~> 2.0"
+  gem "slim_lint"
   gem "spring"
   gem "web-console", ">= 4.1.0"
-  gem "slim_lint"
 end
 
 gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]

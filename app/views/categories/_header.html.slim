@@ -4,7 +4,7 @@
     p.section-category__description= category.description
   .col-6
     .section-category__form-search
-      = search_form_for q do |f|
+      = search_form_for q, url: category_sub_categories_path(category) do |f|
         .d-flex.align-items-center.justify-content-end
           i.bi.bi-calendar-check.me-2#js-litepicker
           #title-calendar= t('.view_by_date')
@@ -16,5 +16,5 @@
 ul.nav
   - category.sub_categories.each.with_index do |sub_category, index|
     li.nav-item
-      = active_link_to(sub_category.name, sub_category_path(sub_category), class: "text-secondary #{ index == 0 ? 'ps-0' : ''}")
+      = active_link_to(sub_category.name, category_sub_category_path(category, sub_category), class: "text-secondary #{ index == 0 ? 'ps-0' : ''}")
 hr.my-0

@@ -4,8 +4,9 @@ Rails.application.routes.draw do
   root to: "dashboard#index"
   get "/dashboard", to: "dashboard#index"
 
-  resources :categories
-  resources :sub_categories
+  resources :categories do
+    resources :sub_categories
+  end
 
   namespace :admin do
     resources :categories do

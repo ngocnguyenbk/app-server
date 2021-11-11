@@ -2,7 +2,11 @@
   .dropdown:hover .dropdown-menu {
     display: block;
   }
-
+  .dropdown-menu {
+    border: none;
+    border-radius: 0;
+    border-top: 1px solid red;
+  }
   .dropdown-item {
     &:active {
       text-decoration: underline;

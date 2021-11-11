@@ -6,7 +6,15 @@
 import Rails from "@rails/ujs"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
-import "./common"
+import "bootstrap"
+import "bootstrap-icons/font/bootstrap-icons.scss"
+import Litepicker from 'litepicker'
+import "../stylesheets/application"
+
+const images = require.context('../images', true)
+
+window.images = images
+window.Litepicker = Litepicker
 
 Rails.start()
 ActiveStorage.start()

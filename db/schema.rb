@@ -15,7 +15,6 @@ ActiveRecord::Schema.define(version: 2021_11_09_144458) do
   create_table "categories", charset: "utf8mb4", collation: "utf8mb4_general_ci", force: :cascade do |t|
     t.string "name", null: false
     t.string "slug", null: false
-    t.string "hex_code", null: false
     t.text "description"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -37,7 +36,6 @@ ActiveRecord::Schema.define(version: 2021_11_09_144458) do
     t.bigint "category_id", null: false
     t.string "name", null: false
     t.string "slug", null: false
-    t.string "hex_code", null: false
     t.text "description"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

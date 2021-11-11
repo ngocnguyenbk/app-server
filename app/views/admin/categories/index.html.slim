@@ -15,7 +15,7 @@
     tbody
       - @categories.each do |category|
         tr
-          td style="color: #{category.hex_code}"
+          td
             = category.name
           td
             = category.description

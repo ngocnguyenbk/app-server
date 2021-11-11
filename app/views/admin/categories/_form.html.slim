@@ -10,6 +10,12 @@
         = f.input :name, label: false
     .d-flex.mb-3
       .col-2
+        = f.label :hex_code, class: "col-form-label"
+      .col-4
+        .color-picker
+        = f.input :hex_code, as: :hidden
+    .d-flex.mb-3
+      .col-2
         = f.label :description, class: "col-form-label"
       .col-6
         = f.input :description, as: :text, input_html: { rows: 5 }, label: false

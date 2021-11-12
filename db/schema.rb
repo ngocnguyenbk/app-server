@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(version: 2021_11_09_144458) do
     t.text "description"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["name", "slug"], name: "index_categories_on_name_and_slug", unique: true
+    t.index ["slug"], name: "index_categories_on_slug", unique: true
   end
 
   create_table "friendly_id_slugs", charset: "utf8mb4", collation: "utf8mb4_general_ci", force: :cascade do |t|
@@ -42,6 +42,7 @@ ActiveRecord::Schema.define(version: 2021_11_09_144458) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["category_id"], name: "index_sub_categories_on_category_id"
+    t.index ["slug"], name: "index_sub_categories_on_slug", unique: true
   end
 
   add_foreign_key "sub_categories", "categories"

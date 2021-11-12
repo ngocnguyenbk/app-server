@@ -13,5 +13,5 @@ vi:
         description: "Mô tả"
       sub_category:
         name: "Tên danh mục"
-        category_id: "Thể loại"
+        hex_code: "Mã màu"
         description: "Mô tả"

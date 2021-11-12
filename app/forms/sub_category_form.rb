@@ -1,5 +1,5 @@
 class SubCategoryForm < BaseForm
-  FORM_FIELDS = [:name, :description].freeze
+  FORM_FIELDS = [:name, :hex_code, :description].freeze
   MODEL_NAME = "SubCategory".freeze
 
   FORM_FIELDS.each do |f|
@@ -8,6 +8,8 @@ class SubCategoryForm < BaseForm
 
   validates :name, presence: true, length: { maximum: 100 }
   validates :name, uniqueness: { case_sensitive: true, model: SubCategory, scope: :category }
+  validates :hex_code, presence: true, length: { maximum: 100 }
+  validates :hex_code, uniqueness: { case_sensitive: true, model: SubCategory, scope: :category }
   validates :description, length: { maximum: 500 }
 
   attr_reader :sub_category, :category
@@ -36,7 +38,7 @@ class SubCategoryForm < BaseForm
   def sub_category_params
     {
       name: name,
-      category_id: category.id,
+      hex_code: hex_code,
       description: description
     }
   end

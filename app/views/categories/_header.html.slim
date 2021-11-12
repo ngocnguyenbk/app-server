@@ -16,5 +16,5 @@
 ul.nav
   - category.sub_categories.each.with_index do |sub_category, index|
     li.nav-item
-      = active_link_to(sub_category.name, category_sub_category_path(category, sub_category), class: "text-secondary #{ index == 0 ? 'ps-0' : ''}")
+      = active_link_to(sub_category, category_sub_category_path(category, sub_category), class: "#{ index == 0 ? 'ps-0' : ''}")
 hr.my-0

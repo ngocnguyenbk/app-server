@@ -1,5 +1,5 @@
 class CategoryForm < BaseForm
-  FORM_FIELDS = [:name, :description].freeze
+  FORM_FIELDS = [:name, :hex_code, :description].freeze
   MODEL_NAME = "Category".freeze
 
   FORM_FIELDS.each do |f|
@@ -8,6 +8,8 @@ class CategoryForm < BaseForm
 
   validates :name, presence: true, length: { maximum: 100 }
   validates :name, uniqueness: { case_sensitive: true, model: Category }
+  validates :hex_code, presence: true, length: { maximum: 100 }
+  validates :hex_code, uniqueness: { case_sensitive: true, model: Category }
   validates :description, length: { maximum: 500 }
 
   attr_reader :category
@@ -35,6 +37,7 @@ class CategoryForm < BaseForm
   def category_params
     {
       name: name,
+      hex_code: hex_code,
       description: description
     }
   end

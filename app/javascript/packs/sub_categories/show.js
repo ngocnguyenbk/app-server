@@ -1,1 +1,1 @@
-import "../../stylesheets/pages/_sub_categories.scss"
+import '@/stylesheets/pages/_sub_categories.scss'

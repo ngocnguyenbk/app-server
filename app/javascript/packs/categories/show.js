@@ -1,4 +1,4 @@
-import "../../stylesheets/pages/_categories.scss"
+import "@/stylesheets/pages/_categories.scss"
 
 function Categories() {
   const module = this

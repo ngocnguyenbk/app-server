@@ -3,7 +3,7 @@ module LinkToHelper
     options[:class] ||= ""
     options[:class] += " nav-link fw-bold"
     if current_page?(path)
-      options[:style] = "color: #{object.hex_code}"
+      options[:style] = "color: #{object.hex_code}; border-bottom: 2px solid #{object.hex_code};"
     else
       options[:onMouseOver] = "this.style.color='#{object.hex_code}'"
       options[:onMouseOut] = "this.style.color=''"

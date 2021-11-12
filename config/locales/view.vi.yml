@@ -36,6 +36,7 @@ vi:
       search: *search
       categories: *category
       sub_categories: *sub_categories
+      admin: "Quản lý"
     admin_header:
       title: *viet_nam
       header_title: *viet_nam

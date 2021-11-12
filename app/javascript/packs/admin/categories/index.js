@@ -1,6 +1,7 @@
 import { forEach } from 'lodash'
 import { Modal } from 'bootstrap'
 import axios from 'axios'
+import '@/stylesheets/pages/admin/_categories.scss'
 
 function Categories() {
   const module = this

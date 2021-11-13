@@ -1,0 +1,28 @@
+name: Ruby
+on:
+  push:
+    branches: [ develop ]
+  pull_request:
+    branches: [ develop ]
+jobs:
+  CI:
+    strategy:
+      matrix:
+        gemfile:
+          - Gemfile.ci
+    env:
+      BUNDLE_GEMFILE: "${{ matrix.gemfile }}"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up Ruby 3.0.1
+        uses: ruby/setup-ruby@477b21f02be01bcb8030d50f37cfec92bfa615b6
+        with:
+          ruby-version: 3.0.1
+          bundler-cache: true
+      - name: Bundle install
+        run: bundle install
+      - name: Rubocop
+        run: bundle exec rubocop
+      - name: Brakeman
+        run: bundle exec brakeman

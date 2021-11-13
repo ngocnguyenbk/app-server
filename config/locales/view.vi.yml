@@ -16,6 +16,14 @@ vi:
     msg_update: &msg_update "Bạn có chắc chắn muốn chỉnh sửa?"
     msg_delele: &msg_delele "Bạn có chắc chắn muốn xóa?"
     search: &search "Tìm kiếm"
+    authors: &authors "Tác giả"
+  flash:
+    created: *created
+    created_false: *created_false
+    updated: *updated
+    updated_false: *updated_false
+    destroyed: *destroyed
+    destroyed_false: *destroyed_false
   layouts:
     application:
       home: "Trang chủ"
@@ -28,6 +36,7 @@ vi:
       category: &category "Thể loại"
       sub_category: &sub_category "Danh mục phụ"
       sub_categories: &sub_categories "Danh mục phụ"
+      authors: *authors
       new: &new "Tạo mới"
   shared:
     header:
@@ -43,6 +52,7 @@ vi:
       search: *search
       categories: *category
       sub_categories: *sub_categories
+      authors: *authors
   admin:
     categories:
       index:
@@ -66,15 +76,6 @@ vi:
         title_modal: "Chỉnh sửa thể loại"
         body_modal: *msg_update
         btn_modal: *confirm
-      create:
-        created: *created
-        created_false: *created_false
-      update:
-        updated: *updated
-        updated_false: *updated_false
-      destroy:
-        destroyed: *destroyed
-        destroyed_false: *destroyed_false
       form:
         submit: *submit
         back: *back
@@ -110,15 +111,28 @@ vi:
         title_modal: "Chỉnh sửa danh mục"
         body_modal: *msg_update
         btn_modal: *confirm
-      update:
-        updated: *updated
-        updated_false: *updated_false
-      create:
-        created: *created
-        created_false: *created_false
-      destroy:
-        destroyed: *destroyed
-        destroyed_false: *destroyed_false
+      form:
+        submit: *submit
+        back: *back
+    authors:
+      index:
+        list: "Danh sách tác giả"
+        create: *create
+        edit: *edit
+        delete: *delete
+        title_modal: "Xóa tác giả"
+        body_modal: *msg_delele
+        btn_modal: *confirm
+      new:
+        title: *new
+        title_modal: "Tạo mới tác giả"
+        body_modal: *msg_create
+        btn_modal: *confirm
+      edit:
+        title: *edit
+        title_modal: "Chỉnh sửa tác giả"
+        body_modal: *msg_update
+        btn_modal: *confirm
       form:
         submit: *submit
         back: *back

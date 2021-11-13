@@ -1,0 +1,30 @@
+= simple_form_for [:admin, author], html: { id: "author-form" } do |f|
+  .bg-light.bg-gradient.p-2
+    .d-flex.justify-content-between.mb-4
+      h5.card-title.font-weight-bold = title
+      = link_to t(".back"), admin_authors_path, class: "btn btn-primary btn-sm"
+    .d-flex.mb-3
+      .col-2
+        = f.label :full_name, class: "col-form-label"
+      .col-3
+        = f.input :full_name, label: false
+    .d-flex.mb-3
+      .col-2
+        = f.label :email, class: "col-form-label"
+      .col-3
+        = f.input :email, label: false
+    .d-flex.mb-3
+      .col-2
+        = f.label :nickname, class: "col-form-label"
+      .col-2
+        = f.input :nickname, label: false
+    .d-flex.mb-3
+      .col-2
+        = f.label :profile, class: "col-form-label"
+      .col-6
+        = f.input :profile, label: false
+    .d-flex.justify-content-end
+      = f.submit t(".submit"), id: "save-button", class: "btn btn-primary btn-sm"
+= render "shared/modal_confirm", modal: { id: "author-modal", class_btn: "btn-primary",
+                                          title_modal: title_modal, body_modal: body_modal,
+                                          btn_modal: btn_modal, id_btn: "btn-confirm-author" }

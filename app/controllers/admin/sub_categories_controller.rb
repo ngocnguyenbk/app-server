@@ -25,10 +25,10 @@ module Admin
       @form = SubCategoryForm.new(sub_category, category, sub_category_params)
 
       if @form.save
-        flash[:success] = t(".created")
+        flash[:success] = t("flash.created")
         redirect_to admin_category_sub_categories_path
       else
-        flash.now[:danger] = t(".created_false")
+        flash.now[:danger] = t("flash.created_false")
         render :new
       end
     end
@@ -37,19 +37,19 @@ module Admin
       @form = SubCategoryForm.new(sub_category, category, sub_category_params)
 
       if @form.save
-        flash[:success] = t(".updated")
+        flash[:success] = t("flash.updated")
         redirect_to admin_category_sub_categories_path
       else
-        flash.now[:danger] = t(".updated_false")
+        flash.now[:danger] = t("flash.updated_false")
         render :edit
       end
     end
 
     def destroy
       if sub_category.destroy
-        flash[:info] = t(".destroyed")
+        flash[:info] = t("flash.destroyed")
       else
-        flash[:danger] = t(".destroyed_false")
+        flash[:danger] = t("flash.destroyed_false")
       end
 
       head :ok

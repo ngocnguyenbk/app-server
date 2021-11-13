@@ -15,3 +15,18 @@ vi:
         name: "Tên danh mục"
         hex_code: "Mã màu"
         description: "Mô tả"
+  activerecord:
+    attributes:
+      category:
+        name: "Tên thể loại"
+        hex_code: "Mã màu"
+        description: "Mô tả"
+      sub_category:
+        name: "Tên danh mục"
+        hex_code: "Mã màu"
+        description: "Mô tả"
+      author:
+        full_name: "Tên tác giả"
+        email: "Email"
+        nickname: "Nickname"
+        profile: "Mô tả"

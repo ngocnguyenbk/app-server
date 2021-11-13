@@ -12,6 +12,7 @@ Rails.application.routes.draw do
     resources :categories do
       resources :sub_categories
     end
+    resources :authors
 
     get "/sub_categories", to: "sub_categories#sub_categories"
   end

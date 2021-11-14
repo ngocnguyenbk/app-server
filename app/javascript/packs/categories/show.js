@@ -1,8 +1,9 @@
-import "@/stylesheets/pages/_categories.scss"
+import '@/stylesheets/pages/_categories.scss'
+import Litepicker from 'litepicker'
 
 function Categories() {
   const module = this
-  const titleCalendar = document.getElementById("title-calendar")
+  const titleCalendar = document.getElementById('title-calendar')
   const picker = new Litepicker({
     element: document.getElementById('js-litepicker'),
     singleMode: false,

@@ -33,13 +33,13 @@ section.section-article
               td
                 = article.sub_category_name
               td
-                = article.author_name
+                = article.author_full_name
               td
                 = article.addresses
               td
-                = article.status
+                = article.status_i18n
               td
-                = article.published_at
+                = article.decorate.publication_date
               td.text-end
                 = link_to t(".edit"), edit_admin_article_path(article), class: "btn btn-primary btn-sm me-2"
                 = link_to t(".delete"), "#", class: "btn btn-danger btn-sm btn-delete-article",

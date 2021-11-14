@@ -3,13 +3,32 @@ import axios from 'axios'
 import 'select2'
 import 'select2/dist/css/select2.css'
 import 'select2-bootstrap-theme/dist/select2-bootstrap.min.css'
+import '@ckeditor/ckeditor5-build-classic'
+import { Modal } from 'bootstrap'
 
 function Articles() {
   const module = this
 
+  module.modalConfirm = new Modal(document.getElementById('article-modal'))
+  module.btn = document.getElementById('save-button')
+  module.btnConfirm = document.getElementById('btn-confirm-article')
+  module.articleForm = document.getElementById('article-form')
   module.selectCategory = $('#article_category_id')
-  module.selectSubCategory =  $('#article_sub_category_id')
+  module.selectSubCategory = $('#article_sub_category_id')
   module.selectAuthor = $('#article_author_id')
+
+  module.showModal = () => {
+    module.btn.addEventListener('click', (e) => {
+      e.preventDefault()
+      module.modalConfirm.show()
+    })
+  }
+
+  module.confirm = () => {
+    module.btnConfirm.addEventListener('click', () => {
+      module.articleForm.submit()
+    })
+  }
 
   module.initSelect2 = () => {
     module.selectCategory.select2({
@@ -22,15 +41,20 @@ function Articles() {
       theme: 'bootstrap',
       language: {
         noResults() {
-          return "Vui lòng chọn thể loại"
-        }
-      }
+          return 'Vui lòng chọn thể loại'
+        },
+      },
     })
 
     module.selectAuthor.select2({
       placeholder: 'Chọn tác giả',
       theme: 'bootstrap',
     })
+  }
+
+  module.initCKeditor = () => {
+    /* eslint-disable no-undef */
+    ClassicEditor.create(document.querySelector('.editor'))
   }
 
   module.setCategory = () => {
@@ -42,12 +66,10 @@ function Articles() {
 
   module.getSubCategory = async (categoryId) => {
     const { data } = await axios.get(`/api/sub_categories?category_id=${categoryId}`)
-    const subCategories = data.map(subCategory => {
-      return {
-        id: subCategory.id,
-        text: subCategory.name
-      }
-    })
+    const subCategories = data.map((subCategory) => ({
+      id: subCategory.id,
+      text: subCategory.name,
+    }))
     module.selectSubCategory.empty()
     module.selectSubCategory.select2({
       placeholder: 'Chọn danh mục',
@@ -57,8 +79,11 @@ function Articles() {
   }
 
   module.init = () => {
+    module.showModal()
+    module.confirm()
     module.initSelect2()
     module.setCategory()
+    module.initCKeditor()
   }
 }
 

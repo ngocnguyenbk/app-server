@@ -25,13 +25,19 @@ module Admin
       end
     end
 
-    def edit; end
+    def edit
+      @form = ArticleForm.new(article, sanitize_params)
+    end
 
     def update
-      if @article.update(article_params)
+      @form = ArticleForm.new(article, article_params)
+
+      if @form.save
+        flash[:success] = t("flash.updated")
         redirect_to admin_articles_path
       else
-        render :edit
+        flash.now[:danger] = t("flash.updated_false")
+        render :new
       end
     end
 
@@ -44,6 +50,11 @@ module Admin
 
     def package_name
       @package_name ||= "admin/articles/create"
+    end
+
+    def sanitize_params
+      article.serializable_hash(only: ArticleForm::FORM_FIELDS)
+             .symbolize_keys.merge(category_id: article.sub_category.category_id)
     end
 
     def article_params

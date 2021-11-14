@@ -15,11 +15,12 @@ ActiveRecord::Schema.define(version: 2021_11_13_080533) do
   create_table "articles", charset: "utf8mb4", collation: "utf8mb4_general_ci", force: :cascade do |t|
     t.bigint "sub_category_id", null: false
     t.bigint "author_id", null: false
+    t.string "slug", null: false
     t.string "addresses", null: false
     t.string "title", null: false
     t.text "body", null: false
     t.integer "status", default: 0, null: false
-    t.datetime "published_at", null: false
+    t.datetime "published_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["author_id"], name: "index_articles_on_author_id"

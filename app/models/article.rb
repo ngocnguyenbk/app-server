@@ -10,6 +10,6 @@ class Article < ApplicationRecord
 
   enum status: { draft: 0, published: 1, canceled: 2 }
 
-  delegate :id, :name, to: :author, prefix: true, allow_nil: true
+  delegate :id, :full_name, to: :author, prefix: true, allow_nil: true
   delegate :id, :name, to: :sub_category, prefix: true, allow_nil: true
 end

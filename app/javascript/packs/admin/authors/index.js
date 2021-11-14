@@ -22,7 +22,7 @@ function Authors() {
   }
 
   module.deleteAuthor = () => {
-    module.btnConfirmDelete.addEventListener('click', async (e) => {
+    module.btnConfirmDelete.addEventListener('click', async () => {
       const response = await axios.delete(module.urlDelete)
       const { status } = response
 

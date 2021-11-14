@@ -1,7 +1,12 @@
 {
   "name": "app-server",
   "private": true,
+  "scripts": {
+    "lint": "eslint --ext .js -c .eslintrc.js app/javascript",
+    "lint:fix": "eslint --ext .js --ignore-path .gitignore -c .eslintrc.js app/javascript --fix"
+  },
   "dependencies": {
+    "@ckeditor/ckeditor5-build-classic": "^31.0.0",
     "@popperjs/core": "^2.10.2",
     "@rails/actioncable": "^6.0.0",
     "@rails/activestorage": "^6.0.0",
@@ -11,6 +16,7 @@
     "axios": "^0.24.0",
     "bootstrap": "^5.1.3",
     "bootstrap-icons": "^1.7.0",
+    "eslint": "^8.2.0",
     "jquery": "^3.6.0",
     "litepicker": "^2.0.12",
     "lodash": "^4.17.21",
@@ -21,6 +27,11 @@
   },
   "version": "0.1.0",
   "devDependencies": {
+    "babel-eslint": "^10.1.0",
+    "eslint-config-airbnb": "^19.0.0",
+    "eslint-import-resolver-webpack": "^0.13.2",
+    "eslint-loader": "^4.0.2",
+    "eslint-plugin-import": "^2.25.3",
     "webpack-dev-server": "^3"
   }
 }

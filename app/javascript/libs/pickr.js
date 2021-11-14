@@ -1,4 +1,6 @@
-function initPickr (color) {
+import Pickr from '@simonwep/pickr'
+
+function initPickr(color) {
   const pickr = new Pickr({
     el: '.color-picker',
     theme: 'nano',
@@ -16,7 +18,7 @@ function initPickr (color) {
       'rgba(139, 195, 74, 0.85)',
       'rgba(205, 220, 57, 0.9)',
       'rgba(255, 235, 59, 0.95)',
-      'rgba(255, 193, 7, 1)'
+      'rgba(255, 193, 7, 1)',
     ],
     default: color,
     components: {
@@ -28,16 +30,16 @@ function initPickr (color) {
         rgba: true,
         input: true,
         clear: true,
-        save: true
-      }
+        save: true,
+      },
     },
     i18n: {
       'btn:save': 'Chọn',
-      'btn:clear': 'Xóa'
+      'btn:clear': 'Xóa',
     },
   })
 
   return pickr
 }
 
-export { initPickr }
+export default initPickr

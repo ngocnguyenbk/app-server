@@ -42,8 +42,8 @@ section.section-article
                 = article.decorate.publication_date
               td.text-end
                 = link_to t(".edit"), edit_admin_article_path(article), class: "btn btn-primary btn-sm me-2"
-                = link_to t(".delete"), "#", class: "btn btn-danger btn-sm btn-delete-article",
-                                             data: { url: admin_article_path(article) }
-= render "shared/modal_confirm", modal: { id: "delete-article-modal", class_btn: "btn-danger",
+                = link_to t(".publish"), "#", class: "btn btn-success btn-sm btn-publish-article #{article.published? ? "disabled" : ""}",
+                                              data: { url: publish_admin_article_path(article) }
+= render "shared/modal_confirm", modal: { id: "publish-article-modal", class_btn: "btn-success",
                                           title_modal: t(".title_modal"), body_modal: t(".body_modal"),
-                                          btn_modal: t(".btn_modal"), id_btn: "btn-confirm-delete-article" }
+                                          btn_modal: t(".btn_modal"), id_btn: "btn-confirm-publish-article" }

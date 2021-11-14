@@ -29,6 +29,8 @@ vi:
     updated_false: *updated_false
     destroyed: *destroyed
     destroyed_false: *destroyed_false
+    published: "Xuất bản thành công"
+    published_false: "Không được xuất bản"
   layouts:
     application:
       home: "Trang chủ"
@@ -148,9 +150,9 @@ vi:
         list: "Danh sách bài viết"
         create: *create
         edit: *edit
-        delete: *delete
-        title_modal: "Xóa bài viết"
-        body_modal: *msg_delele
+        publish: "Xuất bản"
+        title_modal: "Xuất bản bài viết"
+        body_modal: "Bạn có muốn xuất bản bài viết này?"
         btn_modal: *confirm
       new:
         title: *new

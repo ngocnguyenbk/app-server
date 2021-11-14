@@ -13,7 +13,7 @@ class ArticleForm < BaseForm
   validates :author_id, presence: true
   validates :addresses, presence: true
   validates :status, presence: true
-  validates :body, presence: true, length: { maximum: 5000 }
+  validates :body, presence: true
 
   attr_reader :article
 
@@ -56,6 +56,7 @@ class ArticleForm < BaseForm
       author_id: author_id,
       addresses: addresses,
       status: status,
+      published_at: status == "published" ? Time.zone.now : nil,
       body: body
     }
   end

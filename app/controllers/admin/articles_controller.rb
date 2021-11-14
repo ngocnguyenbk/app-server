@@ -1,9 +1,10 @@
 module Admin
   class ArticlesController < Admin::BaseController
-    before_action :article, only: [:edit, :update, :destroy]
+    before_action :article, only: [:edit, :update, :publish]
     before_action :package_name, only: [:new, :edit, :create, :update]
 
     def index
+      @package_name = "admin/articles/index"
       @articles = Article.all
     end
 
@@ -41,9 +42,14 @@ module Admin
       end
     end
 
-    def destroy
-      @article.destroy
-      redirect_to admin_articles_path
+    def publish
+      if article.update!(status: "published", published_at: Time.zone.now)
+        flash[:info] = t("flash.published")
+      else
+        flash[:danger] = t("flash.published_false")
+      end
+
+      head :ok
     end
 
     private

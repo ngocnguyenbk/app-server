@@ -38,7 +38,7 @@
       .col-2
         = f.label :body, class: "col-form-label"
       .col-8
-        = f.input :body, label: false, as: :text, input_html: { class: "tinymce", rows: 20 }
+        = f.input :body, label: false, as: :text, input_html: { class: "editor" }
     .d-flex.justify-content-end
       = f.submit t(".submit"), id: "save-button", class: "btn btn-primary btn-sm"
 = render "shared/modal_confirm", modal: { id: "article-modal", class_btn: "btn-primary",

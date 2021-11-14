@@ -13,7 +13,14 @@ Rails.application.routes.draw do
       resources :sub_categories
     end
     resources :authors
+    resources :articles
 
     get "/sub_categories", to: "sub_categories#sub_categories"
+  end
+
+  namespace :api, format: :json do
+    resources :categories, only: [:index]
+    resources :sub_categories, only: [:index]
+    resources :authors, only: [:index]
   end
 end

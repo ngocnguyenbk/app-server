@@ -1,0 +1,49 @@
+- breadcrumb :articles
+section.section-article
+  .bg-light.bg-gradient
+    .d-flex.justify-content-between.p-2.mb-4
+      h5.ps-2 = t(".list")
+      = link_to t(".create"), new_admin_article_path, class: "btn btn-primary btn-sm"
+    .section-article__table
+      table.table.table-hover.table-borderless
+        thead
+          tr
+            th scope="col"
+              | ID
+            th scope="col"
+              = Article.human_attribute_name(:title)
+            th scope="col"
+              = Article.human_attribute_name(:sub_category_id)
+            th scope="col"
+              = Article.human_attribute_name(:author_id)
+            th scope="col"
+              = Article.human_attribute_name(:addresses)
+            th scope="col"
+              = Article.human_attribute_name(:status)
+            th scope="col"
+              = Article.human_attribute_name(:published_at)
+            th scope="col"
+        tbody
+          - @articles.each do |article|
+            tr
+              td
+                = article.id
+              td
+                = article.title
+              td
+                = article.sub_category_name
+              td
+                = article.author_name
+              td
+                = article.addresses
+              td
+                = article.status
+              td
+                = article.published_at
+              td.text-end
+                = link_to t(".edit"), edit_admin_article_path(article), class: "btn btn-primary btn-sm me-2"
+                = link_to t(".delete"), "#", class: "btn btn-danger btn-sm btn-delete-article",
+                                             data: { url: admin_article_path(article) }
+= render "shared/modal_confirm", modal: { id: "delete-article-modal", class_btn: "btn-danger",
+                                          title_modal: t(".title_modal"), body_modal: t(".body_modal"),
+                                          btn_modal: t(".btn_modal"), id_btn: "btn-confirm-delete-article" }

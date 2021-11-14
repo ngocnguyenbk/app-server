@@ -10,7 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_12_142304) do
+ActiveRecord::Schema.define(version: 2021_11_13_080533) do
+
+  create_table "articles", charset: "utf8mb4", collation: "utf8mb4_general_ci", force: :cascade do |t|
+    t.bigint "sub_category_id", null: false
+    t.bigint "author_id", null: false
+    t.string "addresses", null: false
+    t.string "title", null: false
+    t.text "body", null: false
+    t.integer "status", default: 0, null: false
+    t.datetime "published_at", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["author_id"], name: "index_articles_on_author_id"
+    t.index ["sub_category_id"], name: "index_articles_on_sub_category_id"
+  end
 
   create_table "authors", charset: "utf8mb4", collation: "utf8mb4_general_ci", force: :cascade do |t|
     t.string "full_name", null: false
@@ -55,5 +69,7 @@ ActiveRecord::Schema.define(version: 2021_11_12_142304) do
     t.index ["slug"], name: "index_sub_categories_on_slug", unique: true
   end
 
+  add_foreign_key "articles", "authors"
+  add_foreign_key "articles", "sub_categories"
   add_foreign_key "sub_categories", "categories"
 end

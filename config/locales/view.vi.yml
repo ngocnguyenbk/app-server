@@ -17,6 +17,10 @@ vi:
     msg_delele: &msg_delele "Bạn có chắc chắn muốn xóa?"
     search: &search "Tìm kiếm"
     authors: &authors "Tác giả"
+    articles: &articles "Bài viết"
+  select:
+    category: "Chọn thể loại"
+    sub_category: "Chọn danh mục phụ"
   flash:
     created: *created
     created_false: *created_false
@@ -37,6 +41,7 @@ vi:
       sub_category: &sub_category "Danh mục phụ"
       sub_categories: &sub_categories "Danh mục phụ"
       authors: *authors
+      articles: *articles
       new: &new "Tạo mới"
   shared:
     header:
@@ -53,6 +58,7 @@ vi:
       categories: *category
       sub_categories: *sub_categories
       authors: *authors
+      articles: *articles
   admin:
     categories:
       index:
@@ -131,6 +137,28 @@ vi:
       edit:
         title: *edit
         title_modal: "Chỉnh sửa tác giả"
+        body_modal: *msg_update
+        btn_modal: *confirm
+      form:
+        submit: *submit
+        back: *back
+    articles:
+      index:
+        list: "Danh sách bài viết"
+        create: *create
+        edit: *edit
+        delete: *delete
+        title_modal: "Xóa bài viết"
+        body_modal: *msg_delele
+        btn_modal: *confirm
+      new:
+        title: *new
+        title_modal: "Tạo mới bài viết"
+        body_modal: *msg_create
+        btn_modal: *confirm
+      edit:
+        title: *edit
+        title_modal: "Chỉnh sửa bài viết"
         body_modal: *msg_update
         btn_modal: *confirm
       form:

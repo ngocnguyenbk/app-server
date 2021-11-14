@@ -3,13 +3,32 @@ import axios from 'axios'
 import 'select2'
 import 'select2/dist/css/select2.css'
 import 'select2-bootstrap-theme/dist/select2-bootstrap.min.css'
+import '@ckeditor/ckeditor5-build-classic'
+import { Modal } from 'bootstrap'
 
 function Articles() {
   const module = this
 
+  module.modalConfirm = new Modal(document.getElementById('article-modal'))
+  module.btn = document.getElementById('save-button')
+  module.btnConfirm = document.getElementById('btn-confirm-article')
+  module.articleForm = document.getElementById('article-form')
   module.selectCategory = $('#article_category_id')
   module.selectSubCategory =  $('#article_sub_category_id')
   module.selectAuthor = $('#article_author_id')
+
+  module.showModal = () => {
+    module.btn.addEventListener('click', (e) => {
+      e.preventDefault()
+      module.modalConfirm.show()
+    })
+  }
+
+  module.confirm = () => {
+    module.btnConfirm.addEventListener('click', (e) => {
+      module.articleForm.submit()
+    })
+  }
 
   module.initSelect2 = () => {
     module.selectCategory.select2({
@@ -31,6 +50,10 @@ function Articles() {
       placeholder: 'Chọn tác giả',
       theme: 'bootstrap',
     })
+  }
+
+  module.initCKeditor = () => {
+    ClassicEditor.create(document.querySelector('.editor'))
   }
 
   module.setCategory = () => {
@@ -57,8 +80,11 @@ function Articles() {
   }
 
   module.init = () => {
+    module.showModal()
+    module.confirm()
     module.initSelect2()
     module.setCategory()
+    module.initCKeditor()
   }
 }
 

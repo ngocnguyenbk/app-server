@@ -3,7 +3,7 @@ crumb :articles do
 end
 
 crumb :article do |article|
-  link article.full_name, edit_admin_article_path(article)
+  link article.title, edit_admin_article_path(article)
   parent :articles
 end
 

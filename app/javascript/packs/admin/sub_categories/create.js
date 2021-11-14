@@ -5,7 +5,6 @@ function SubCategories() {
   const module = this
   const options = { keyboard: false }
 
-  module.url = null
   module.inputHexCode = document.getElementById('sub_category_hex_code')
   module.modalConfirm = new Modal(document.getElementById('sub-category-modal'), { options })
   module.btn = document.getElementById('save-button')
@@ -15,7 +14,6 @@ function SubCategories() {
   module.showModal = () => {
     module.btn.addEventListener('click', (e) => {
       e.preventDefault()
-      module.url = e.target.dataset.url
       module.modalConfirm.show()
     })
   }

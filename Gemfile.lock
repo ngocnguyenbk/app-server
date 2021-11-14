@@ -69,6 +69,8 @@ GEM
     coderay (1.1.3)
     concurrent-ruby (1.1.9)
     crass (1.0.6)
+    enum_help (0.0.17)
+      activesupport (>= 3.0.0)
     erubi (1.10.0)
     ffi (1.15.4)
     friendly_id (5.4.2)
@@ -230,6 +232,7 @@ PLATFORMS
 DEPENDENCIES
   bootsnap (>= 1.4.4)
   brakeman
+  enum_help (~> 0.0.17)
   friendly_id (~> 5.4.0)
   gretel
   jbuilder (~> 2.7)

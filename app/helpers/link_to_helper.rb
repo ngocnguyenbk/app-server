@@ -16,4 +16,11 @@ module LinkToHelper
     options[:class] += " nav-link"
     link_to object.name, path, options
   end
+
+  def text_link_to(text, path, options = {})
+    options[:class] ||= ""
+    options[:class] += " nav-link fw-bold"
+    options[:class] += " active" if path.include?(controller_path)
+    link_to text, path, options
+  end
 end

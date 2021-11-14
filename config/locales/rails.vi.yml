@@ -15,6 +15,15 @@ vi:
         name: "Tên danh mục"
         hex_code: "Mã màu"
         description: "Mô tả"
+      article:
+        title: "Tiêu đề"
+        category_id: "Thể loại"
+        sub_category_id: "Danh mục"
+        author_id: "Tác giả"
+        addresses: "Địa chỉ"
+        body: "Nội dung"
+        status: "Trạng thái"
+        published_at: "Ngày xuất bản"
   activerecord:
     attributes:
       category:
@@ -30,3 +39,11 @@ vi:
         email: "Email"
         nickname: "Nickname"
         profile: "Mô tả"
+      article:
+        title: "Tiêu đề"
+        sub_category_id: "Danh mục"
+        author_id: "Tác giả"
+        addresses: "Địa chỉ"
+        body: "Nội dung"
+        status: "Trạng thái"
+        published_at: "Ngày xuất bản"

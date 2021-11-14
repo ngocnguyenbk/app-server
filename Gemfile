@@ -10,6 +10,7 @@ gem "sass-rails", ">= 6"
 gem "simple_form"
 gem "slim"
 
+gem "enum_help", "~> 0.0.17"
 gem "friendly_id", "~> 5.4.0"
 gem "gretel"
 gem "jbuilder", "~> 2.7"

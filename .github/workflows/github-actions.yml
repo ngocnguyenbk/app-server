@@ -22,7 +22,11 @@ jobs:
           bundler-cache: true
       - name: Bundle install
         run: bundle install
+      - name: Yarn install
+        run: yarn install
       - name: Rubocop
         run: bundle exec rubocop
       - name: Brakeman
         run: bundle exec brakeman
+      - name: Eslint
+        run: yarn lint

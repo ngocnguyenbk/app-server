@@ -1,5 +1,5 @@
 import { Modal } from 'bootstrap'
-import { initPickr } from '@libs/pickr'
+import initPickr from '@libs/pickr'
 
 function Categories() {
   const module = this
@@ -19,7 +19,7 @@ function Categories() {
   }
 
   module.confirm = () => {
-    module.btnConfirm.addEventListener('click', (e) => {
+    module.btnConfirm.addEventListener('click', () => {
       module.categoryForm.submit()
     })
   }

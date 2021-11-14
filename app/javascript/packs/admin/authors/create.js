@@ -17,7 +17,7 @@ function Authors() {
   }
 
   module.confirm = () => {
-    module.btnConfirm.addEventListener('click', (e) => {
+    module.btnConfirm.addEventListener('click', () => {
       module.authorForm.submit()
     })
   }

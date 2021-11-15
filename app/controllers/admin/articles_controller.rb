@@ -5,7 +5,8 @@ module Admin
 
     def index
       @package_name = "admin/articles/index"
-      @articles = Article.all
+      @q = Article.ransack(params[:q])
+      @articles = @q.result
     end
 
     def new

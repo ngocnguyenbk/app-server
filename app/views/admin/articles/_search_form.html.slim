@@ -1,0 +1,36 @@
+= search_form_for @q, url: admin_articles_path, html: { class: "card m-5 p-5" } do |f|
+  .d-flex.mb-3
+    .row.col-6
+      .col-2
+        = f.label :title, class: "col-form-label"
+      .col-6
+        = f.text_field :title_cont, label: false, class: "form-control"
+    .row.col-6
+      .col-2
+        = f.label :published_at, class: "col-form-label text-nowrap"
+      .col-6
+        = f.text_field :published_at, label: false, class: "form-control"
+  .d-flex.mb-3
+    .row.col-6
+      .col-2
+        = f.label :sub_category_id, class: "col-form-label"
+      .col-6
+        = f.text_field :sub_category_id, label: false, class: "form-control"
+    .row.col-6
+      .col-2
+        = f.label :author_id, class: "col-form-label"
+      .col-6
+        = f.text_field :author_full_name_cont, label: false, class: "form-control"
+  .d-flex.mb-3
+    .row.col-6
+      .col-2
+        = f.label :addresses, class: "col-form-label"
+      .col-6
+        = f.text_field :addresses_cont, label: false, class: "form-control"
+    .row.col-6
+      .col-2
+        = f.label :status, class: "col-form-label"
+      .col-6
+        = f.check_box :status_in, label: false, class: "form-control", collection: Article.statuses_i18n
+  .d-flex.flex-row-reverse
+    = f.submit t("dictionary.search"), class: "btn btn-primary btn-sm"

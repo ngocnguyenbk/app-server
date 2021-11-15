@@ -40,6 +40,7 @@ vi:
         nickname: "Nickname"
         profile: "Mô tả"
       article:
+        id: "Id"
         title: "Tiêu đề"
         sub_category_id: "Danh mục"
         author_id: "Tác giả"

@@ -4,6 +4,8 @@ section.section-article
     .d-flex.justify-content-between.p-2.mb-4
       h5.ps-2 = t(".list")
       = link_to t(".create"), new_admin_article_path, class: "btn btn-primary btn-sm"
+    .section-article__search
+      = render partial: "search_form", locals: { q: @q }
     .section-article__table
       table.table.table-hover.table-borderless
         thead

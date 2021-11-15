@@ -1,7 +1,7 @@
 .d-flex
   .col-6
-    h4.fw-bold= category.name
-    p.section-sub-category__description= category.description
+    h4.fw-bold = category.name
+    p.section-sub-category__description = category.description
   .col-6
     .section-sub-category__form-search
       = search_form_for q, url: category_sub_categories_path(category) do |f|
@@ -12,5 +12,5 @@
 ul.nav
   - category.sub_categories.each.with_index do |sub, index|
     li.nav-item
-      = active_link_to(sub, category_sub_category_path(category, sub), class: "#{ index == 0 ? 'ps-0' : ''}")
+      = active_link_to(sub, category_sub_category_path(category, sub), class: index.zero? ? "ps-0" : "")
 hr.my-0

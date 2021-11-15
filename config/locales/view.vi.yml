@@ -19,6 +19,7 @@ vi:
     authors: &authors "Tác giả"
     articles: &articles "Bài viết"
     not_published: &not_published "Chưa được xuất bản"
+    reset_form: &reset_form "Đặt lại"
   select:
     category: "Chọn thể loại"
     sub_category: "Chọn danh mục phụ"

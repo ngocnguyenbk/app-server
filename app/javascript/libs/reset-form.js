@@ -1,0 +1,5 @@
+function resetForm(form) {
+  form.find('input:text, input:hidden, input:password, input:file, select, textarea').val('')
+  form.find('input:radio, input:checkbox').removeAttr('checked').removeAttr('selected')
+}
+export default resetForm

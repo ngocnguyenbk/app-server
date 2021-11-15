@@ -22,9 +22,11 @@
           td
             = sub_category.category_name
           td.text-end
-            = link_to t(".edit"), edit_admin_category_sub_category_path(sub_category.category, sub_category), class: "btn btn-primary btn-sm me-2"
+            = link_to t(".edit"), edit_admin_category_sub_category_path(sub_category.category, sub_category),
+                                  class: "btn btn-primary btn-sm me-2"
             = link_to t(".delete"), "#", class: "btn btn-danger btn-sm btn-delete-sub-category",
-                                         data: { url: admin_category_sub_category_path(sub_category.category, sub_category) }
+                                         data: { url: admin_category_sub_category_path(sub_category.category,
+                                                                                       sub_category) }
 
 = render "shared/modal_confirm", modal: { id: "delete-sub-category-modal", class_btn: "btn-danger",
                                           title_modal: t(".title_modal"), body_modal: t(".body_modal"),

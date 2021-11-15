@@ -28,5 +28,7 @@ jobs:
         run: bundle exec rubocop
       - name: Brakeman
         run: bundle exec brakeman
+      - name: SlimLint
+        run: bundle exec slim-lint .
       - name: Eslint
         run: yarn lint

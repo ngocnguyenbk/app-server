@@ -13,7 +13,12 @@ Rails.application.routes.draw do
       resources :sub_categories
     end
     resources :authors
-    resources :articles
+    resources :articles do
+      member do
+        patch :publish
+        patch :unpublish
+      end
+    end
 
     get "/sub_categories", to: "sub_categories#sub_categories"
   end

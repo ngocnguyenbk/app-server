@@ -14,6 +14,6 @@ html
   body[data-controller="#{controller_path}" data-action="#{action_name}"]
     = render "shared/admin_header"
     = breadcrumbs separator: " / "
-    div class="#{container_type}"
+    div class="#{container_type} mb-5"
       = render "shared/flash"
       = yield

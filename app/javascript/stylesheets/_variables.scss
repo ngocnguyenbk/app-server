@@ -1,0 +1,48 @@
+$sizes: (
+  5: 5%,
+  10: 10%,
+  15: 15%,
+  20: 20%,
+  25: 25%,
+  30: 30%,
+  36: 36%,
+  40: 40%,
+  45: 45%,
+  50: 50%,
+  60: 60%,
+  65: 65%,
+  70: 70%,
+  75: 75%,
+  80: 80%,
+  100: 100%,
+  60px: 60px,
+  70px: 70px,
+  75px: 75px,
+  80px: 80px,
+  90px: 90px,
+  100px: 100px,
+  105px: 105px,
+  110px: 110px,
+  120px: 120px,
+  125px: 125px,
+  140px: 140px,
+  150px: 150px,
+  160px: 160px,
+  180px: 180px,
+  190px: 190px,
+  200px: 200px,
+  220px: 220px,
+  300px: 300px,
+);
+$utilities: (
+  "width": (
+    property: width,
+    class: w,
+    values: $sizes
+  ),
+  "height": (
+    property: height,
+    class: h,
+    values: $sizes
+  )
+);

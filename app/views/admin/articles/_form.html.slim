@@ -32,8 +32,9 @@
       .col-2
         = f.label :status, class: "col-form-label"
       .col-6
-        = f.input :status, legend_tag: false, as: :radio_buttons, collection: Article.statuses_i18n, checked: "draft",
-                  label_method: :second, value_method: :first, item_wrapper_class: "form-check form-check-inline"
+        = f.input :status, legend_tag: false, as: :radio_buttons, collection: Article.statuses_i18n,
+                  checked: f.object.article.status, label_method: :second, value_method: :first,
+                  item_wrapper_class: "form-check form-check-inline"
     .d-flex.mb-3
       .col-2
         = f.label :body, class: "col-form-label"

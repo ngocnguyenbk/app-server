@@ -5,7 +5,9 @@ module Admin
 
     def index
       @package_name = "admin/categories/index"
-      @categories = Category.all
+
+      categories = Category.all
+      @pagy, @categories = pagy(categories)
     end
 
     def show; end

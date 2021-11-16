@@ -6,7 +6,9 @@ module Admin
     def index
       @package_name = "admin/articles/index"
       @q = Article.ransack(params[:q])
-      @articles = @q.result.preload(:sub_category, :author)
+
+      articles = @q.result.preload(:sub_category, :author)
+      @pagy, @articles = pagy(articles)
     end
 
     def new

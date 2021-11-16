@@ -12,4 +12,8 @@ class Article < ApplicationRecord
 
   delegate :id, :full_name, to: :author, prefix: true, allow_nil: true
   delegate :id, :name, to: :sub_category, prefix: true, allow_nil: true
+
+  ransacker :status, formatter: proc { |v| statuses[v] } do |parent|
+    parent.table[:status]
+  end
 end

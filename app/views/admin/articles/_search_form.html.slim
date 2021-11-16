@@ -1,0 +1,44 @@
+= search_form_for q, url: admin_articles_path, html: { class: "card m-5 p-5" } do |f|
+  .d-flex.mb-3
+    .row.col-6
+      .col-2
+        = f.label :title, class: "col-form-label"
+      .col-6
+        = f.text_field :title_cont, label: false, class: "form-control"
+    .row.col-6
+      .col-2
+        = f.label :published_at, class: "col-form-label text-nowrap"
+      .col-6
+        = f.text_field :published_at, label: false, class: "form-control"
+        = f.hidden_field :published_at_gteq
+        = f.hidden_field :published_at_lteq
+  .d-flex.mb-3
+    .row.col-6
+      .col-2
+        = f.label :sub_category_id, class: "col-form-label"
+      .col-6
+        = f.select :sub_category_id_eq, SubCategory.all.map { |c| [c.name, c.id] },
+                    { include_blank: true }, { class: "form-select" }
+    .row.col-6
+      .col-2
+        = f.label :author_id, class: "col-form-label"
+      .col-6
+        = f.text_field :author_full_name_cont, label: false, class: "form-control"
+  .d-flex.mb-3
+    .row.col-6
+      .col-2
+        = f.label :addresses, class: "col-form-label"
+      .col-6
+        = f.text_field :addresses_cont, label: false, class: "form-control"
+    .row.col-6
+      .col-2
+        = f.label :status, class: "col-form-label"
+      .col-6.align-self-center
+        - Article.statuses_i18n.each do |k, v|
+          .form-check.form-check-inline
+            = f.check_box :status_in, { multiple: true, class: "form-check-input", id: "status-#{k}" }, k, nil
+            label.form-check-label[for="status-#{k}"] = v
+  .d-flex.flex-row-reverse
+    button.btn.btn-secondary.btn-sm#btn-reset-articles[type="button"]
+      = t("dictionary.reset_form")
+    = f.submit t("dictionary.search"), class: "btn btn-primary btn-sm me-2"

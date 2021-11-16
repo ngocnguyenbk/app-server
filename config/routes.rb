@@ -27,5 +27,8 @@ Rails.application.routes.draw do
     resources :categories, only: [:index]
     resources :sub_categories, only: [:index]
     resources :authors, only: [:index]
+    resources :articles do
+      resources :thumbnails, only: [:destroy]
+    end
   end
 end

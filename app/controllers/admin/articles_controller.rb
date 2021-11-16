@@ -67,7 +67,7 @@ module Admin
     end
 
     def article_params
-      params.require(:article).permit(ArticleForm::FORM_FIELDS)
+      params.require(:article).permit(ArticleForm::FORM_FIELDS, thumbnails: [])
     end
 
     def article

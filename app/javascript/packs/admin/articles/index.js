@@ -2,11 +2,10 @@ import { forEach } from 'lodash'
 import { Modal } from 'bootstrap'
 import $ from 'jquery'
 import axios from 'axios'
-import 'select2'
-import 'select2/dist/css/select2.css'
-import 'select2-bootstrap-theme/dist/select2-bootstrap.min.css'
 import Litepicker from 'litepicker'
+
 import resetForm from '@/libs/reset-form'
+import '@libs/select2'
 
 function Articles() {
   const module = this

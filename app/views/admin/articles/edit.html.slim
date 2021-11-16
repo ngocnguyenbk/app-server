@@ -1,4 +1,6 @@
 - breadcrumb :article, @article
-= render partial: "form", locals: { form: @form, title: t(".title"),
-                                    title_modal: t(".title_modal"), body_modal: t(".body_modal"),
-                                    btn_modal: t(".btn_modal") }
+section.section-article
+  .section-article__create
+    = render partial: "form", locals: { form: @form, title: t(".title"),
+                                        title_modal: t(".title_modal"), body_modal: t(".body_modal"),
+                                        btn_modal: t(".btn_modal") }

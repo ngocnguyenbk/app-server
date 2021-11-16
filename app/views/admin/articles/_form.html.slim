@@ -37,6 +37,21 @@
                   item_wrapper_class: "form-check form-check-inline"
     .d-flex.mb-3
       .col-2
+        = f.label :thumbnails, class: "col-form-label"
+      .col-8
+        = f.input :thumbnails, as: :file, label: false, input_html: { multiple: true, direct_upload: true }
+        .d-flex.flex-row.preview-thumbnails
+          - f.object.article.thumbnails.each do |thumbnail|
+            .thumb-item[id="thumbnail-#{thumbnail.id}"]
+              = image_tag thumbnail.variant(resize: "100x100"), class: "img-thumbnail mt-2"
+              = link_to "#", class: "text-white" do
+                i.bi.bi-x-circle.pe-2.icon-delete-thumb[data-id="#{thumbnail.id}"
+                                                        data-article-id="#{f.object.article.slug}"
+                                                        data-bs-toggle="tooltip"
+                                                        data-bs-placement="top"
+                                                        title="Xóa ảnh"]
+    .d-flex.mb-3
+      .col-2
         = f.label :body, class: "col-form-label"
       .col-8
         = f.input :body, label: false, as: :text, input_html: { class: "editor" }

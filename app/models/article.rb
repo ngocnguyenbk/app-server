@@ -5,6 +5,10 @@ class Article < ApplicationRecord
   belongs_to :sub_category
   belongs_to :author
 
+  has_many_attached :thumbnails do |attachable|
+    attachable.variant :thumb, resize: "500x300"
+  end
+
   friendly_id :title, use: :slugged
   alias_attribute :name, :title
 

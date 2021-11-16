@@ -1,0 +1,20 @@
+.section-article {
+  &__create {
+    .thumb-item {
+      position: relative;
+      img {
+        &:hover {
+          opacity: 0.5;
+          visibility: visible;
+        }
+      }
+    }
+    .thumb-item i {
+      font-size: 1.5rem;
+      top: 50%;
+      left: 50%;
+      position: absolute;
+      transform: translate(-50%, -50%);
+    }
+  }
+}

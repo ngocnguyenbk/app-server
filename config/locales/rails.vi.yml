@@ -5,6 +5,8 @@ vi:
       blank: "không được để trống"
       too_long: "không quá %{count} ký tự"
       taken: "đã được sử dụng"
+      invalid_content_type: "định dạng không hợp lệ"
+      too_big_file: "không quá %{size} MB"
   activemodel:
     attributes:
       category:
@@ -23,6 +25,7 @@ vi:
         addresses: "Địa chỉ"
         body: "Nội dung"
         status: "Trạng thái"
+        thumbnails: "Ảnh đại diện"
         published_at: "Ngày xuất bản"
   activerecord:
     attributes:

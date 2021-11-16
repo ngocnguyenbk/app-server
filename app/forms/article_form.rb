@@ -1,6 +1,6 @@
 class ArticleForm < BaseForm
   FORM_FIELDS = [:title, :category_id, :sub_category_id, :author_id,
-                 :addresses, :status, :body].freeze
+                 :addresses, :status, :body, :thumbnails].freeze
   MODEL_NAME = "Article".freeze
 
   FORM_FIELDS.each do |f|
@@ -14,6 +14,10 @@ class ArticleForm < BaseForm
   validates :addresses, presence: true
   validates :status, presence: true
   validates :body, presence: true
+  validates :thumbnails, presence: true, unless: -> { persisted? }
+
+  validate :content_type, if: -> { thumbnails.present? }
+  validate :file_size, if: -> { thumbnails.present? }
 
   attr_reader :article
 
@@ -33,6 +37,10 @@ class ArticleForm < BaseForm
 
   def persist!
     article.update!(article_params)
+
+    return true if thumbnails.blank?
+
+    article.thumbnails.attach(thumbnails)
   end
 
   def category_options
@@ -63,5 +71,25 @@ class ArticleForm < BaseForm
 
   def category
     @category ||= Category.find_by(id: category_id)
+  end
+
+  def content_type
+    thumbnails.each do |file|
+      unless file.content_type.in?(%w[image/jpeg image/png image/jpg])
+        errors.add(:thumbnails, :invalid_content_type)
+        return false
+      end
+    end
+  end
+
+  def file_size
+    return false if errors.added?(:thumbnails, :invalid_content_type)
+
+    thumbnails.each do |file|
+      if file.size > 5.megabytes
+        errors.add(:thumbnails, :too_big_file, size: 5)
+        return false
+      end
+    end
   end
 end

@@ -26,3 +26,14 @@
 .right-icon .bi {
   right: 10px;
 }
+.pagination {
+  .page-link {
+    color: #5c636a
+  }
+  .active {
+    .page-link {
+      background-color: #5c636a;
+      color: #fff;
+    }
+  }
+}

@@ -16,6 +16,7 @@ gem "enum_help", "~> 0.0.17"
 gem "friendly_id", "~> 5.4.0"
 gem "gretel"
 gem "jbuilder", "~> 2.7"
+gem "pagy", "~> 5.3"
 gem "ransack"
 gem "webpacker", "~> 5.0"
 

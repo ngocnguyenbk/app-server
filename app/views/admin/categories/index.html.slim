@@ -4,6 +4,10 @@ section.section-category
     .d-flex.justify-content-between.p-2.mb-4
       h5.ps-2 = t(".list")
       = link_to t(".create"), new_admin_category_path, class: "btn btn-primary btn-sm"
+    .section-category__pagy
+      .d-flex.justify-content-end.mx-1
+        - if @pagy.pages > 1
+          = render partial: "shared/pagy", locals: { pagy: @pagy }
     .section-category__table
       table.table.table-hover.table-borderless
         thead

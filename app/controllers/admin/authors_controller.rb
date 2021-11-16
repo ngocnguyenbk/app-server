@@ -5,7 +5,9 @@ module Admin
 
     def index
       @package_name = "admin/authors/index"
-      @authors = Author.all
+
+      authors = Author.all
+      @pagy, @authors = pagy(authors)
     end
 
     def new

@@ -6,7 +6,9 @@ module Admin
 
     def index
       @package_name = "admin/sub_categories/index"
-      @sub_categories = category.sub_categories
+
+      sub_categories = category.sub_categories
+      @pagy, @sub_categories = pagy(sub_categories)
     end
 
     def show; end
@@ -57,7 +59,9 @@ module Admin
 
     def sub_categories
       @package_name = "admin/sub_categories/index"
-      @sub_categories = SubCategory.all.preload(:category)
+
+      sub_categories = SubCategory.all.preload(:category)
+      @pagy, @sub_categories = pagy(sub_categories)
     end
 
     private

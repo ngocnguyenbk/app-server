@@ -6,6 +6,10 @@ section.section-article
       = link_to t(".create"), new_admin_article_path, class: "btn btn-primary btn-sm"
     .section-article__search
       = render partial: "search_form", locals: { q: @q }
+    .section-article__pagy
+      .d-flex.justify-content-end.mx-1
+        - if @pagy.pages > 1
+          = render partial: "shared/pagy", locals: { pagy: @pagy }
     .section-article__table
       table.table.table-hover.table-borderless
         thead

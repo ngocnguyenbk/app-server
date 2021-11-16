@@ -1,5 +1,20 @@
+import { forEach } from 'lodash'
+
 function resetForm(form) {
-  form.find('input:text, input:hidden, input:password, input:file, select, textarea').val('')
-  form.find('input:radio, input:checkbox').removeAttr('checked').removeAttr('selected')
+  forEach(form.elements, (element) => {
+    switch (element.type) {
+      case 'text':
+      case 'textarea':
+      case 'hidden':
+        element.value = ''
+        break
+      case 'checkbox':
+      case 'radio':
+        element.checked = false
+        break
+      default:
+        break
+    }
+  })
 }
 export default resetForm

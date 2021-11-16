@@ -72,7 +72,9 @@ function Articles() {
 
   module.btnReset.onclick = () => {
     const form = document.getElementById('article_search')
+    /* eslint-disable no-restricted-globals */
     history.pushState(null, null, '/admin/articles')
+    module.selectSubCategory.val(null).trigger('change')
     resetForm(form)
   }
 

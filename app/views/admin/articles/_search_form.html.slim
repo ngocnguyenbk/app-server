@@ -1,4 +1,4 @@
-= search_form_for @q, url: admin_articles_path, html: { class: "card m-5 p-5" } do |f|
+= search_form_for q, url: admin_articles_path, html: { class: "card m-5 p-5" } do |f|
   .d-flex.mb-3
     .row.col-6
       .col-2
@@ -36,8 +36,8 @@
       .col-6.align-self-center
         - Article.statuses_i18n.each do |k, v|
           .form-check.form-check-inline
-            = f.check_box :status_in, { multiple: true, class: "form-check-input" }, k, nil
-            .form-check-label = v
+            = f.check_box :status_in, { multiple: true, class: "form-check-input", id: "status-#{k}" }, k, nil
+            label.form-check-label[for="status-#{k}"] = v
   .d-flex.flex-row-reverse
     button.btn.btn-secondary.btn-sm#btn-reset-articles[type="button"]
       = t("dictionary.reset_form")

@@ -32,6 +32,7 @@ module AppServer
 
     config.time_zone = "Hanoi"
     config.active_record.default_timezone = :local
+    config.active_storage.replace_on_assign_to_many = false
 
     # config.eager_load_paths << Rails.root.join("extras")
 

@@ -3,7 +3,7 @@ authors = Author.all
 SubCategory.all.each do |sub_category|
   articles = []
 
-  rand(50..100).times do
+  rand(10..20).times do
     article = { title: Faker::Hipster.sentences.sample,
                 sub_category_id: sub_category.id,
                 author_id: authors.sample.id,
@@ -16,3 +16,19 @@ SubCategory.all.each do |sub_category|
   end
   Article.import articles
 end
+
+Rails.logger.debug "----------Attach thumbnails----------"
+Article.all.each do |article|
+  Dir.foreach("tmp/images") do |filename|
+    next if [".", ".."].include?(filename)
+
+    file = File.open(Rails.root.join("tmp/images/#{filename}"))
+
+    article.thumbnails.attach(io: file,
+                              filename: filename,
+                              content_type: "image/jpg",
+                              identify: false)
+    file.close
+  end
+end
+Rails.logger.debug "----------Attach thumbnails done----------"

@@ -1,5 +1,15 @@
 - content_for :title_page do
   = @category.description
-section.section-category.mt-4
+section.section-category
   .section-category__header
     = render partial: "header", locals: { category: @category, q: @q }
+  .section-category__content
+    .row
+      .col-8.left-top
+        .section-category__topstory
+          = render partial: "shared/article/new", locals: { article: @new_article }
+          hr
+          = render partial: "sub_top", locals: { articles: @sub_top_articles }
+          hr
+      .col-4.right-top
+        = render partial: "right_top", locals: { articles: @news_articles }

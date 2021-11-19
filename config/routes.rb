@@ -15,6 +15,7 @@ Rails.application.routes.draw do
       resources :sub_categories
     end
     resources :authors
+    resources :topics
     resources :articles do
       member do
         patch :publish

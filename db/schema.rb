@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_16_151449) do
+ActiveRecord::Schema.define(version: 2021_11_19_022916) do
 
   create_table "active_storage_attachments", charset: "utf8mb4", collation: "utf8mb4_general_ci", force: :cascade do |t|
     t.string "name", null: false
@@ -51,8 +51,10 @@ ActiveRecord::Schema.define(version: 2021_11_16_151449) do
     t.datetime "published_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "topic_id"
     t.index ["author_id"], name: "index_articles_on_author_id"
     t.index ["sub_category_id"], name: "index_articles_on_sub_category_id"
+    t.index ["topic_id"], name: "index_articles_on_topic_id"
   end
 
   create_table "authors", charset: "utf8mb4", collation: "utf8mb4_general_ci", force: :cascade do |t|
@@ -98,9 +100,21 @@ ActiveRecord::Schema.define(version: 2021_11_16_151449) do
     t.index ["slug"], name: "index_sub_categories_on_slug", unique: true
   end
 
+  create_table "topics", charset: "utf8mb4", collation: "utf8mb4_general_ci", force: :cascade do |t|
+    t.bigint "category_id", null: false
+    t.string "name", null: false
+    t.string "slug", null: false
+    t.text "description", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["category_id"], name: "index_topics_on_category_id"
+  end
+
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "articles", "authors"
   add_foreign_key "articles", "sub_categories"
+  add_foreign_key "articles", "topics"
   add_foreign_key "sub_categories", "categories"
+  add_foreign_key "topics", "categories"
 end

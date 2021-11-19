@@ -1,4 +1,5 @@
 authors = Author.all
+topics = Topic.all
 
 SubCategory.all.each do |sub_category|
   articles = []
@@ -7,6 +8,7 @@ SubCategory.all.each do |sub_category|
     article = { title: Faker::Hipster.sentences.sample,
                 sub_category_id: sub_category.id,
                 author_id: authors.sample.id,
+                topic_id: topics.sample.id,
                 addresses: Faker::Address.city,
                 status: Article.statuses.keys.sample,
                 body: Faker::Lorem.paragraph(sentence_count: rand(300..500)) }

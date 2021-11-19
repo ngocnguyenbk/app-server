@@ -16,6 +16,7 @@ function Articles() {
   module.publishGteq = document.getElementById('q_published_at_gteq')
   module.publishLteq = document.getElementById('q_published_at_lteq')
   module.selectSubCategory = $('#q_sub_category_id_eq')
+  module.selectTopic = $('#q_topic_id_eq')
   module.btnReset = document.getElementById('btn-reset-articles')
 
   module.showModalPublish = () => {
@@ -43,6 +44,12 @@ function Articles() {
     module.selectSubCategory.select2({
       allowClear: true,
       placeholder: 'Chọn danh mục',
+      theme: 'bootstrap',
+    })
+
+    module.selectTopic.select2({
+      allowClear: true,
+      placeholder: 'Chọn chủ đề',
       theme: 'bootstrap',
     })
   }

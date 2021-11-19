@@ -198,6 +198,8 @@ vi:
     header:
       view_by_date: "Xem theo ngày"
       search: "Tìm kiếm trong thể loại"
+    topics:
+      topics: *topics
   sub_categories:
     header:
       search: "Tìm kiếm trong thể loại"

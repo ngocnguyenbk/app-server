@@ -1,0 +1,10 @@
+.row
+  .col-2
+    i.bi.bi-graph-up-arrow
+    span.title = t(".topics")
+    i.bi.bi-chevron-right
+  .col-10
+    .swiper
+      .swiper-wrapper
+        - topics.each do |topic|
+          = link_to topic.name, topic_path(topic), class: "swiper-slide topic-link"

@@ -2,6 +2,8 @@ class Topic < ApplicationRecord
   extend FriendlyId
   prepend GenerateSlug
 
+  LIMIT = 10
+
   belongs_to :category
   has_many :articles
 

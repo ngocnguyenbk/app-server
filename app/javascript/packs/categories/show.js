@@ -1,5 +1,6 @@
 import '@/stylesheets/pages/_categories.scss'
 import Litepicker from 'litepicker'
+import initSwiper from '@/libs/swiper'
 
 function Categories() {
   const module = this
@@ -8,6 +9,7 @@ function Categories() {
     element: document.getElementById('js-litepicker'),
     singleMode: false,
   })
+  initSwiper('.swiper')
 
   module.setPicker = () => {
     picker.on('selected', (starDate, endDate) => {

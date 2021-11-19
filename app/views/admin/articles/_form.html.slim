@@ -20,6 +20,11 @@
         = f.input :sub_category_id, label: false, collection: f.object.sub_category_options
     .d-flex.mb-3
       .col-2
+        = f.label :topic_id, class: "col-form-label"
+      .col-3
+        = f.input :topic_id, label: false, collection: f.object.topic_options
+    .d-flex.mb-3
+      .col-2
         = f.label :author_id, class: "col-form-label"
       .col-3
         = f.input :author_id, label: false, collection: f.object.author_options

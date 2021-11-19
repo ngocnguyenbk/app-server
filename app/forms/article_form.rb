@@ -1,5 +1,5 @@
 class ArticleForm < BaseForm
-  FORM_FIELDS = [:title, :category_id, :sub_category_id, :author_id,
+  FORM_FIELDS = [:title, :category_id, :sub_category_id, :topic_id, :author_id,
                  :addresses, :status, :body, :thumbnails].freeze
   MODEL_NAME = "Article".freeze
 
@@ -51,6 +51,10 @@ class ArticleForm < BaseForm
     category.present? ? category.sub_categories.map { |c| [c.name, c.id] } : []
   end
 
+  def topic_options
+    category.present? ? category.topics.map { |c| [c.name, c.id] } : []
+  end
+
   def author_options
     Author.all.map { |c| [c.full_name, c.id] }
   end
@@ -61,6 +65,7 @@ class ArticleForm < BaseForm
     {
       title: title,
       sub_category_id: sub_category_id,
+      topic_id: topic_id,
       author_id: author_id,
       addresses: addresses,
       status: status,

@@ -84,4 +84,24 @@
       border-radius: 20px;
     }
   }
+  &__topics {
+    i.bi-graph-up-arrow {
+      opacity: 0.5;
+      margin-right: 0.5rem;
+    }
+    i.bi-chevron-right {
+      opacity: 0.5;
+      margin-left: 0.5rem;
+    }
+    .title {
+      opacity: 0.5;
+    }
+    .topic-link {
+      margin-right: 1.5rem;
+      color: cornflowerblue;
+      &:hover {
+        color: #9f224e;
+      }
+    }
+  }
 }

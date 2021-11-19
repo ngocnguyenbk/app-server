@@ -7,6 +7,7 @@ class CategoriesController < ApplicationController
     @news_articles = articles.limit(Article::LIMIT_NEWS)
     @new_article = @news_articles.sample
     @sub_top_articles = @news_articles.sample(Article::SUB_TOP)
+    @topics = category.topics.limit(Topic::LIMIT)
   end
 
   private

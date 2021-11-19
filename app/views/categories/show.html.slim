@@ -13,3 +13,8 @@ section.section-category
           hr
       .col-4.right-top
         = render partial: "right_top", locals: { articles: @news_articles }
+    .row
+      .col-8.topics
+        .section-category__topics
+          = render partial: "topics", locals: { topics: @topics }
+          hr

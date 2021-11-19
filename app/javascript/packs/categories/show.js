@@ -18,8 +18,15 @@ function Categories() {
     })
   }
 
+  module.setHeightBoxNews = () => {
+    const topStory = document.getElementsByClassName('section-category__topstory')[0]
+    const boxNews = document.getElementsByClassName('box-news')[0]
+    boxNews.style.height = `${topStory.offsetHeight}px`
+  }
+
   module.init = () => {
     module.setPicker()
+    module.setHeightBoxNews()
   }
 }
 

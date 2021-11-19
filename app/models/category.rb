@@ -3,5 +3,7 @@ class Category < ApplicationRecord
   prepend GenerateSlug
 
   has_many :sub_categories, dependent: :destroy
+  has_many :articles, through: :sub_categories
+
   friendly_id :name, use: :slugged
 end

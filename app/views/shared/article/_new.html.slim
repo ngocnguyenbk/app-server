@@ -1,0 +1,15 @@
+article.d-flex.flex-row.article-new
+  .article-new__image
+    = image_tag article.decorate.thumb_url, class: "h-100", size: "500x280"
+  .article-new__content
+    .article-new__title
+      = link_to article_path(article) do
+        h3.fw-bold = article.decorate.title
+    .article-new__description
+      = link_to article_path(article), title: article.title
+        span.article-new__address = article.addresses
+        | -
+        = article.decorate.body_truncate
+    .article-new__time
+      span = article.decorate.time_ago
+      span = article.sub_category_name

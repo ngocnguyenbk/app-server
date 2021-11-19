@@ -8,6 +8,8 @@ Rails.application.routes.draw do
     resources :sub_categories
   end
 
+  resources :articles
+
   namespace :admin do
     resources :categories do
       resources :sub_categories

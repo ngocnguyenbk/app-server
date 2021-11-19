@@ -21,6 +21,7 @@ class Article < ApplicationRecord
 
   delegate :id, :full_name, to: :author, prefix: true, allow_nil: true
   delegate :id, :name, :category_name, to: :sub_category, prefix: true, allow_nil: true
+  delegate :id, :name, to: :topic, prefix: true, allow_nil: true
 
   alias category_name sub_category_category_name
 

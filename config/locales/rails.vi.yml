@@ -27,6 +27,7 @@ vi:
         status: "Trạng thái"
         thumbnails: "Ảnh đại diện"
         published_at: "Ngày xuất bản"
+        topic_id: "Chủ đề"
   activerecord:
     attributes:
       category:
@@ -51,3 +52,8 @@ vi:
         body: "Nội dung"
         status: "Trạng thái"
         published_at: "Ngày xuất bản"
+        topic_id: "Chủ đề"
+      topic:
+        name: "Tiêu đề"
+        category_id: "Thể loại"
+        description: "Mô tả"

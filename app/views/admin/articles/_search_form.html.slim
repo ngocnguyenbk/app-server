@@ -38,6 +38,13 @@
           .form-check.form-check-inline
             = f.check_box :status_in, { multiple: true, class: "form-check-input", id: "status-#{k}" }, k, nil
             label.form-check-label[for="status-#{k}"] = v
+  .d-flex.mb-3
+    .row.col-6
+      .col-2
+        = f.label :topic_id, class: "col-form-label"
+      .col-6
+        = f.select :topic_id_eq, Topic.all.map { |c| [c.name, c.id] },
+                    { include_blank: true }, { class: "form-select" }
   .d-flex.flex-row-reverse
     button.btn.btn-secondary.btn-sm#btn-reset-articles[type="button"]
       = t("dictionary.reset_form")

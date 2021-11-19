@@ -17,6 +17,7 @@ function Articles() {
   module.articleForm = document.getElementById('article-form')
   module.selectCategory = $('#article_category_id')
   module.selectSubCategory = $('#article_sub_category_id')
+  module.selectTopic = $('#article_topic_id')
   module.selectAuthor = $('#article_author_id')
   module.thumbnails = document.getElementById('article_thumbnails')
   module.thumbnail = document.getElementById('thumbnails')
@@ -51,6 +52,17 @@ function Articles() {
       },
     })
 
+    module.selectTopic.select2({
+      allowClear: true,
+      placeholder: 'Chọn chủ đề',
+      theme: 'bootstrap',
+      language: {
+        noResults() {
+          return 'Vui lòng chọn thể loại'
+        },
+      },
+    })
+
     module.selectAuthor.select2({
       placeholder: 'Chọn tác giả',
       theme: 'bootstrap',
@@ -76,14 +88,7 @@ function Articles() {
     })
   }
 
-  module.setCategory = () => {
-    module.selectCategory.on('select2:select', (e) => {
-      const categoryId = e.params.data.id
-      module.getSubCategory(categoryId)
-    })
-  }
-
-  module.getSubCategory = async (categoryId) => {
+  async function getSubCategory(categoryId) {
     const { data } = await axios.get(`/api/sub_categories?category_id=${categoryId}`)
     const subCategories = data.map((subCategory) => ({
       id: subCategory.id,
@@ -94,6 +99,29 @@ function Articles() {
       placeholder: 'Chọn danh mục',
       theme: 'bootstrap',
       data: subCategories,
+    })
+  }
+
+  async function getTopic(categoryId) {
+    const { data } = await axios.get(`/api/topics?category_id=${categoryId}`)
+    const topics = data.map((topic) => ({
+      id: topic.id,
+      text: topic.name,
+    }))
+    module.selectTopic.empty()
+    module.selectTopic.select2({
+      allowClear: true,
+      placeholder: 'Chọn danh mục',
+      theme: 'bootstrap',
+      data: topics,
+    })
+  }
+
+  module.setCategory = () => {
+    module.selectCategory.on('select2:select', (e) => {
+      const categoryId = e.params.data.id
+      getSubCategory(categoryId)
+      getTopic(categoryId)
     })
   }
 

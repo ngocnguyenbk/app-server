@@ -29,6 +29,7 @@ Rails.application.routes.draw do
   namespace :api, format: :json do
     resources :categories, only: [:index]
     resources :sub_categories, only: [:index]
+    resources :topics, only: [:index]
     resources :authors, only: [:index]
     resources :articles do
       resources :thumbnails, only: [:destroy]

@@ -6,6 +6,7 @@ class Article < ApplicationRecord
   SUB_TOP = 3
 
   belongs_to :sub_category
+  belongs_to :topic, optional: true
   belongs_to :author
 
   has_many_attached :thumbnails do |attachable|

@@ -119,3 +119,37 @@
     }
   }
 }
+.section-list-one {
+  &__left {
+    @import "@/stylesheets/partials/link_to";
+    margin-right: 2rem;
+    .title {
+      margin-bottom: 1.5rem;
+      font-weight: bold;
+      &:hover {
+        color: cornflowerblue;
+      }
+    }
+    .time_ago span {
+      opacity: 0.5;
+      font-size: 0.8rem;
+      margin-right: 00.5rem;
+    }
+  }
+  &__right {
+    @import "@/stylesheets/partials/link_to";
+    padding: 1rem;
+    .sub-name {
+      color: #9f224e;
+      font-weight: bold;
+      margin-bottom: 0.5rem;
+      text-decoration: underline;
+    }
+    .title-random, .title {
+      font-weight: bold;
+      &:hover {
+        color: cornflowerblue;
+      }
+    }
+  }
+}

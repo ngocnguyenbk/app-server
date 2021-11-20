@@ -27,4 +27,8 @@ class ArticleDecorator < Draper::Decorator
   def body_truncate
     object.body.truncate(200).html_safe # rubocop:disable Rails/OutputSafety
   end
+
+  def body_truncate_small
+    object.body.truncate(150).html_safe # rubocop:disable Rails/OutputSafety
+  end
 end

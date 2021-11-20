@@ -1,6 +1,6 @@
 import { forEach } from 'lodash'
 
-function resetForm(form) {
+const resetForm = (form) => {
   forEach(form.elements, (element) => {
     switch (element.type) {
       case 'text':

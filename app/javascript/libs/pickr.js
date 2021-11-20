@@ -1,6 +1,6 @@
 import Pickr from '@simonwep/pickr'
 
-function initPickr(color) {
+const initPickr = (color) => {
   const pickr = new Pickr({
     el: '.color-picker',
     theme: 'nano',

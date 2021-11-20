@@ -1,7 +1,7 @@
 import Swiper from 'swiper'
 import 'swiper/swiper-bundle.min.css'
 
-function initSwiper(el) {
+const initSwiper = (el) => {
   const swiper = new Swiper(el, {
     spaceBetween: 10,
     slidesPerView: 5,

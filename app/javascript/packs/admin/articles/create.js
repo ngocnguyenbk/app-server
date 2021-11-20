@@ -88,7 +88,7 @@ function Articles() {
     })
   }
 
-  async function getSubCategory(categoryId) {
+  const getSubCategory = async (categoryId) => {
     const { data } = await axios.get(`/api/sub_categories?category_id=${categoryId}`)
     const subCategories = data.map((subCategory) => ({
       id: subCategory.id,
@@ -102,7 +102,7 @@ function Articles() {
     })
   }
 
-  async function getTopic(categoryId) {
+  const getTopic = async (categoryId) => {
     const { data } = await axios.get(`/api/topics?category_id=${categoryId}`)
     const topics = data.map((topic) => ({
       id: topic.id,

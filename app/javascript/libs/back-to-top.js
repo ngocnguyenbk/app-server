@@ -2,7 +2,7 @@ function BackToTop() {
   const module = this
   module.btnBackToTop = document.getElementById('back-to-top')
 
-  function scrollFunction() {
+  const scrollFunction = () => {
     if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
       module.btnBackToTop.style.display = 'block'
     } else {
@@ -10,7 +10,7 @@ function BackToTop() {
     }
   }
 
-  function backToTop() {
+  const backToTop = () => {
     document.body.scrollTop = 0
     document.documentElement.scrollTop = 0
   }

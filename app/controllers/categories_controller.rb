@@ -4,11 +4,15 @@ class CategoriesController < ApplicationController
   def show
     @package_name = "categories/show"
     @q = category.articles.published.ransack(params[:q])
-    @news_articles = articles.limit(Article::LIMIT_NEWS)
+    @news_articles = articles.preload(:sub_category).limit(Article::LIMIT_NEWS)
     @new_article = @news_articles.sample
     @sub_top_articles = @news_articles.sample(Article::SUB_TOP)
     @topics = category.topics.limit(Topic::LIMIT)
     @random_articles = articles.sample(Article::LIMIT_RANDOM)
+    @list_one_articles = articles.limit(Article::LIMIT_LIST_ONE).shuffle
+    @sub_categories = category.sub_categories.limit(SubCategory::LIMIT)
+                              .preload(articles: [thumbnails_attachments: [:blob]])
+                              .shuffle
   end
 
   private

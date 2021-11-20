@@ -34,6 +34,7 @@ end
 
 group :development do
   gem "brakeman"
+  gem "bullet", group: "development"
   gem "listen", "~> 3.3"
   gem "rack-mini-profiler", "~> 2.0"
   gem "slim_lint"

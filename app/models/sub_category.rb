@@ -2,6 +2,8 @@ class SubCategory < ApplicationRecord
   extend FriendlyId
   prepend GenerateSlug
 
+  LIMIT = 5
+
   has_many :articles, dependent: :destroy
 
   belongs_to :category

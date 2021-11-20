@@ -1,0 +1,21 @@
+- sub_categories.each do |sub_category|
+  .sub-name
+    = link_to category_sub_category_path(sub_category), title: sub_category.description do
+      = sub_category.name
+  .d-flex
+    .col-4
+      - random_article = sub_category.articles.sample
+      = image_tag random_article.decorate.thumb_url, size: "200x120"
+    .col-4
+      = link_to article_path(random_article), title: random_article.title do
+        .title-random = random_article.decorate.title
+        .body = random_article.decorate.body_truncate_small
+    .mx-2
+    .col-4
+      - sub_category.articles.limit(2).each.with_index do |article, index|
+        .d-flex
+          = link_to article_path(article), title: article.title, class: "title" do
+            = article.decorate.title
+        - if index.zero?
+          hr
+  hr

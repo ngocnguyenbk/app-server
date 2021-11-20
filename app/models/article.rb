@@ -5,6 +5,7 @@ class Article < ApplicationRecord
   LIMIT_NEWS = 10
   SUB_TOP = 3
   LIMIT_RANDOM = 5
+  LIMIT_LIST_ONE = 6
 
   belongs_to :sub_category
   belongs_to :topic, optional: true

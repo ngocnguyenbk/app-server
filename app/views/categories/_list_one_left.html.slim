@@ -1,0 +1,14 @@
+- articles.each do |article|
+  .list-group-item
+    .d-flex
+      = link_to article_path(article), title: article.title, class: "title" do
+        = article.decorate.title
+    .d-flex
+      .col-7
+        = link_to article_path(article), title: article.title do
+          .body = article.decorate.body_truncate_small
+        .time_ago
+          span = article.decorate.time_ago
+          span = article.sub_category_name
+      .col-5
+        = image_tag article.decorate.thumb_url, size: "200x120"

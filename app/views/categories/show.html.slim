@@ -22,3 +22,10 @@ section.section-category
       .d-flex
         = render partial: "random_articles", locals: { articles: @random_articles }
     hr
+section.section-ads
+  hr/
+section.section-list-one.d-flex
+  .col-5.section-list-one__left
+    = render partial: "list_one_left", locals: { articles: @list_one_articles }
+  .col-7.section-list-one__right
+    = render partial: "list_one_right", locals: { sub_categories: @sub_categories }

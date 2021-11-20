@@ -8,6 +8,7 @@ class CategoriesController < ApplicationController
     @new_article = @news_articles.sample
     @sub_top_articles = @news_articles.sample(Article::SUB_TOP)
     @topics = category.topics.limit(Topic::LIMIT)
+    @random_articles = articles.sample(Article::LIMIT_RANDOM)
   end
 
   private

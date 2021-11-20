@@ -18,3 +18,7 @@ section.section-category
         .section-category__topics
           = render partial: "topics", locals: { topics: @topics }
           hr
+    .section-category__random-articles
+      .d-flex
+        = render partial: "random_articles", locals: { articles: @random_articles }
+    hr

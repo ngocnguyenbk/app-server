@@ -104,4 +104,18 @@
       }
     }
   }
+  &__random-articles {
+    @import "@/stylesheets/partials/link_to";
+    img {
+      margin-bottom: 0.5rem;
+    }
+    a {
+      &:hover {
+        color: cornflowerblue;
+      }
+    }
+    .vr {
+      margin-right: 1rem;
+    }
+  }
 }

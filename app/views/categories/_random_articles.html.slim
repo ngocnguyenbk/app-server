@@ -1,0 +1,7 @@
+- length = articles.length
+- articles.each.with_index do |article, index|
+  .col-2
+    = image_tag article.decorate.thumb_url, size: "200x140"
+    = link_to article.title, article_path(article)
+  - unless index == length - 1
+    .vr

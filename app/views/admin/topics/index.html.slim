@@ -1,0 +1,36 @@
+- breadcrumb :topics
+section.section-topic
+  .bg-light.bg-gradient
+    .d-flex.justify-content-between.p-2.mb-4
+      h5.ps-2 = t(".list")
+      = link_to t(".create"), new_admin_topic_path, class: "btn btn-primary btn-sm"
+    .section-topic__pagy
+      .d-flex.justify-content-end.mx-1
+        - if @pagy.pages > 1
+          = render partial: "shared/pagy", locals: { pagy: @pagy }
+    .section-topic__table
+      table.table.table-hover.table-borderless
+        thead
+          tr
+            th scope="col"
+              = Topic.human_attribute_name(:name)
+            th scope="col"
+              = Topic.human_attribute_name(:description)
+            th scope="col"
+            th scope="col"
+        tbody
+          - @topics.each do |topic|
+            tr
+              td
+                = topic.name
+              td
+                = topic.description
+              td
+                = link_to t(".articles"), admin_articles_path(q: { topic_id_eq: topic.id })
+              td.text-end
+                = link_to t(".edit"), edit_admin_topic_path(topic), class: "btn btn-primary btn-sm me-2"
+                = link_to t(".delete"), "#", class: "btn btn-danger btn-sm btn-delete-topic",
+                                             data: { url: admin_topic_path(topic) }
+= render "shared/modal_confirm", modal: { id: "delete-topic-modal", class_btn: "btn-danger",
+                                          title_modal: t(".title_modal"), body_modal: t(".body_modal"),
+                                          btn_modal: t(".btn_modal"), id_btn: "btn-confirm-delete-topic" }

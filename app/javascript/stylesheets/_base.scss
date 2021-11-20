@@ -1,0 +1,41 @@
+@import "header";
+@import "fileinput";
+@import "ckeditor";
+
+.breadcrumbs {
+  margin-bottom: 2rem;
+}
+
+#flash {
+  .alert {
+    padding: 0.5rem 1rem;
+  }
+  .btn-close {
+    padding: 0.8rem 1rem;
+  }
+}
+.inner-icon {
+  position: relative;
+}
+.inner-icon .bi {
+  position: absolute;
+  padding: 10px;
+  pointer-events: none;
+}
+.left-icon .bi {
+  left: 0px;
+}
+.right-icon .bi {
+  right: 10px;
+}
+.pagination {
+  .page-link {
+    color: #5c636a
+  }
+  .active {
+    .page-link {
+      background-color: #5c636a;
+      color: #fff;
+    }
+  }
+}

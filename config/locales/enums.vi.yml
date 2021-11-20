@@ -1,0 +1,7 @@
+vi:
+  enums:
+    article:
+      status:
+        draft: "Bản nháp"
+        published: "Đã xuất bản"
+        canceled: "Đã hủy"

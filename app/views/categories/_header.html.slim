@@ -1,0 +1,21 @@
+.d-flex
+  .col-6
+    h4.fw-bold = category.name
+    p.section-category__description = category.description
+  .col-6
+    .section-category__form-search
+      = search_form_for q, url: category_sub_categories_path(category) do |f|
+        .d-flex.align-items-center.justify-content-end
+          i.bi.bi-calendar-check.me-2#js-litepicker
+          #title-calendar = t(".view_by_date")
+          = f.hidden_field :created_at_eq
+          .vr.mx-2
+          .inner-icon.right-icon
+            i.bi.bi-search
+            = f.search_field :name_eq, class: "form-control rounded-pill", placeholder: t(".search")
+ul.nav
+  - category.sub_categories.each.with_index do |sub_category, index|
+    li.nav-item
+      = active_link_to(sub_category, category_sub_category_path(category, sub_category),
+                       class: index.zero? ? "ps-0" : "")
+hr.my-0

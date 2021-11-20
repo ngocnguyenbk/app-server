@@ -1,0 +1,21 @@
+nav.navbar.navbar-expand-lg.navbar-light.bg-light
+  .container
+    = link_to root_path, class: "navbar-brand d-flex"
+      = image_pack_tag("flower-icon.png", size: "30x24", class: "align-top me-2", title: t(".title"))
+      .fw-bold = t(".header_title")
+    button.navbar-toggler[type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggler"]
+      span.navbar-toggler-icon
+    #navbarToggler.collapse.navbar-collapse
+      ul.navbar-nav.me-auto.mb-2.mb-lg-0
+        li.nav-item
+          = text_link_to t(".categories"), admin_categories_path, class: "nav-link"
+        li.nav-item
+          = text_link_to t(".sub_categories"), admin_sub_categories_path, class: "nav-link"
+        li.nav-item
+          = text_link_to t(".topics"), admin_topics_path, class: "nav-link"
+        li.nav-item
+          = text_link_to t(".authors"), admin_authors_path, class: "nav-link"
+        li.nav-item
+          = text_link_to t(".articles"), admin_articles_path, class: "nav-link"
+      form.d-flex
+        input.form-control.rounded-pill.me-2[type="search" placeholder=t(".search") aria-label="Search"]

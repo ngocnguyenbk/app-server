@@ -1,0 +1,121 @@
+.section-category {
+  hr {
+    height: 0.5px;
+  }
+  margin-top: 1.5rem;
+  &__header {
+    .nav-link {
+      color: rgba(0, 0, 0, 0.55);
+    }
+  }
+  &__form-search {
+    input::-webkit-input-placeholder {
+      font-size: 0.8rem;
+    }
+    .bi-calendar-check {
+      cursor: pointer;
+      font-size: 1.5rem;
+      color: cornflowerblue;
+    }
+  }
+  &__content {
+    margin-top: 1.5rem;
+    .article-new {
+      &__content {
+        height: 350px;
+        background: #f7f7f7;
+        padding-right: 0.5rem;
+        padding-left: 0.5rem;
+      }
+      &__title {
+        &:hover {
+          color: cornflowerblue;
+        }
+      }
+      &__title, &__description {
+        @import "@/stylesheets/partials/link_to";
+      }
+      &__address {
+        opacity: 0.5;
+      }
+      &__time {
+        margin-top: 0.5rem;
+        opacity: 0.5;
+        font-size: 0.8rem;
+        span {
+          margin-right: 3rem;
+        }
+      }
+    }
+    .sub-news-top {
+      @import "@/stylesheets/partials/link_to";
+      &__title {
+        margin-bottom: 1.5rem;
+        &:hover {
+          color: cornflowerblue;
+        }
+      }
+      &__item {
+        margin-right: 1.5rem;
+      }
+    }
+    .box-news {
+      @import "@/stylesheets/partials/link_to";
+      overflow-y: scroll;
+      &__title {
+        &:hover {
+          color: cornflowerblue;
+        }
+      }
+      &__thumb-small {
+        margin-bottom: 0.5rem;
+      }
+    }
+    .box-news::-webkit-scrollbar {
+      height: 6px;
+      width: 6px;
+    }
+    .box-news::-webkit-scrollbar-thumb {
+      background: rgb(156, 156, 156);
+      border-radius: 20px;
+    }
+    .box-news::-webkit-scrollbar-track {
+      background: #ddd;
+      border-radius: 20px;
+    }
+  }
+  &__topics {
+    i.bi-graph-up-arrow {
+      opacity: 0.5;
+      margin-right: 0.5rem;
+    }
+    i.bi-chevron-right {
+      opacity: 0.5;
+      margin-left: 0.5rem;
+    }
+    .title {
+      opacity: 0.5;
+    }
+    .topic-link {
+      margin-right: 1.5rem;
+      color: cornflowerblue;
+      &:hover {
+        color: #9f224e;
+      }
+    }
+  }
+  &__random-articles {
+    @import "@/stylesheets/partials/link_to";
+    img {
+      margin-bottom: 0.5rem;
+    }
+    a {
+      &:hover {
+        color: cornflowerblue;
+      }
+    }
+    .vr {
+      margin-right: 1rem;
+    }
+  }
+}

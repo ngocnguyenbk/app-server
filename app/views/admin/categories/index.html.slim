@@ -1,0 +1,36 @@
+- breadcrumb :categories
+section.section-category
+  .bg-light.bg-gradient
+    .d-flex.justify-content-between.p-2.mb-4
+      h5.ps-2 = t(".list")
+      = link_to t(".create"), new_admin_category_path, class: "btn btn-primary btn-sm"
+    .section-category__pagy
+      .d-flex.justify-content-end.mx-1
+        - if @pagy.pages > 1
+          = render partial: "shared/pagy", locals: { pagy: @pagy }
+    .section-category__table
+      table.table.table-hover.table-borderless
+        thead
+          tr
+            th scope="col"
+              = t(".name")
+            th scope="col"
+              = t(".description")
+            th scope="col"
+            th scope="col"
+        tbody
+          - @categories.each do |category|
+            tr
+              td style="color: #{category.hex_code}"
+                = category.name
+              td
+                = category.description
+              td
+                = link_to t(".sub_category"), admin_category_sub_categories_path(category), class: "sub_category"
+              td.text-end
+                = link_to t(".edit"), edit_admin_category_path(category), class: "btn btn-primary btn-sm me-2"
+                = link_to t(".delete"), "#", class: "btn btn-danger btn-sm btn-delete-category",
+                                             data: { url: admin_category_path(category) }
+= render "shared/modal_confirm", modal: { id: "delete-category-modal", class_btn: "btn-danger",
+                                          title_modal: t(".title_modal"), body_modal: t(".body_modal"),
+                                          btn_modal: t(".btn_modal"), id_btn: "btn-confirm-delete-category" }

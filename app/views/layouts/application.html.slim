@@ -1,0 +1,18 @@
+doctype html
+html
+  head
+    title
+      = content_for?(:title_page) ? yield(:title_page) : t(".viet_nam")
+    meta[name="viewport" content="width=device-width,initial-scale=1"]
+    = csrf_meta_tags
+    = csp_meta_tag
+    = stylesheet_link_tag "application", media: "all"
+    = stylesheet_pack_tag "application", media: "all"
+    = javascript_pack_tag "application"
+    = javascript_pack_tag @package_name if @package_name
+    = favicon_pack_tag "flower-icon.png"
+  body[data-controller="#{controller_path}" data-action="#{action_name}"]
+    = render "shared/header"
+    = breadcrumbs separator: " / "
+    .container
+      = yield

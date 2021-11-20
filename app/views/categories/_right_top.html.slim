@@ -1,0 +1,11 @@
+- length = articles.size
+.card.p-4.box-news
+  - articles.each.with_index do |article, index|
+    = link_to article_path(article), title: article.title do
+      article.box-news__content.row
+        .col-8.box-news__title
+          = article.decorate.title
+        .col-4.box-news__thumb-small
+          = image_tag article.decorate.thumb_url, size: "100x80", class: "img-thumbnail"
+        - unless index == length - 1
+          hr

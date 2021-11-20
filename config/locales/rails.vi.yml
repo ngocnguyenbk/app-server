@@ -1,0 +1,59 @@
+vi:
+  errors: &errors
+    format: "%{attribute} %{message}"
+    messages:
+      blank: "không được để trống"
+      too_long: "không quá %{count} ký tự"
+      taken: "đã được sử dụng"
+      invalid_content_type: "định dạng không hợp lệ"
+      too_big_file: "không quá %{size} MB"
+  activemodel:
+    attributes:
+      category:
+        name: "Tên thể loại"
+        hex_code: "Mã màu"
+        description: "Mô tả"
+      sub_category:
+        name: "Tên danh mục"
+        hex_code: "Mã màu"
+        description: "Mô tả"
+      article:
+        title: "Tiêu đề"
+        category_id: "Thể loại"
+        sub_category_id: "Danh mục"
+        author_id: "Tác giả"
+        addresses: "Địa chỉ"
+        body: "Nội dung"
+        status: "Trạng thái"
+        thumbnails: "Ảnh đại diện"
+        published_at: "Ngày xuất bản"
+        topic_id: "Chủ đề"
+  activerecord:
+    attributes:
+      category:
+        name: "Tên thể loại"
+        hex_code: "Mã màu"
+        description: "Mô tả"
+      sub_category:
+        name: "Tên danh mục"
+        hex_code: "Mã màu"
+        description: "Mô tả"
+      author:
+        full_name: "Tên tác giả"
+        email: "Email"
+        nickname: "Nickname"
+        profile: "Mô tả"
+      article:
+        id: "Id"
+        title: "Tiêu đề"
+        sub_category_id: "Danh mục"
+        author_id: "Tác giả"
+        addresses: "Địa chỉ"
+        body: "Nội dung"
+        status: "Trạng thái"
+        published_at: "Ngày xuất bản"
+        topic_id: "Chủ đề"
+      topic:
+        name: "Tiêu đề"
+        category_id: "Thể loại"
+        description: "Mô tả"

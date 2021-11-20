@@ -1,0 +1,6 @@
+vi:
+  pagy:
+    nav:
+      prev: '	&laquo; '
+      gap: '...'
+      next: ' &raquo; '

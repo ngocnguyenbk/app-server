@@ -1,0 +1,31 @@
+#navbarToggler {
+  .dropdown:hover .dropdown-menu {
+    display: block;
+  }
+  .dropdown-menu {
+    border: none;
+    border-radius: 0;
+    border-top: 1px solid red;
+  }
+  .dropdown-item {
+    &:active {
+      text-decoration: underline;
+      background-color: #f5f5f5;
+    }
+    &:hover {
+      text-decoration: underline;
+      background-color: white !important;
+    }
+  }
+}
+
+.breadcrumbs {
+  padding-left: 1rem;
+  a {
+    color: #000;
+    text-decoration: none;
+    &:hover {
+      color: #000;
+    }
+  }
+}

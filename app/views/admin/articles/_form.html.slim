@@ -1,0 +1,67 @@
+= simple_form_for [:admin, form], html: { id: "article-form" } do |f|
+  .bg-light.bg-gradient.p-2
+    .d-flex.justify-content-between.mb-4
+      h5.card-title.font-weight-bold = title
+      = link_to t(".back"), admin_articles_path, class: "btn btn-primary btn-sm"
+    .d-flex.mb-3
+      .col-2
+        = f.label :title, class: "col-form-label"
+      .col-6
+        = f.input :title, label: false
+    .d-flex.mb-3
+      .col-2
+        = f.label :category_id, class: "col-form-label"
+      .col-3
+        = f.input :category_id, label: false, collection: f.object.category_options
+    .d-flex.mb-3
+      .col-2
+        = f.label :sub_category_id, class: "col-form-label"
+      .col-3
+        = f.input :sub_category_id, label: false, collection: f.object.sub_category_options
+    .d-flex.mb-3
+      .col-2
+        = f.label :topic_id, class: "col-form-label"
+      .col-3
+        = f.input :topic_id, label: false, collection: f.object.topic_options
+    .d-flex.mb-3
+      .col-2
+        = f.label :author_id, class: "col-form-label"
+      .col-3
+        = f.input :author_id, label: false, collection: f.object.author_options
+    .d-flex.mb-3
+      .col-2
+        = f.label :addresses, class: "col-form-label"
+      .col-3
+        = f.input :addresses, label: false
+    .d-flex.mb-3
+      .col-2
+        = f.label :status, class: "col-form-label"
+      .col-6
+        = f.input :status, legend_tag: false, as: :radio_buttons, collection: Article.statuses_i18n,
+                  checked: f.object.article.status, label_method: :second, value_method: :first,
+                  item_wrapper_class: "form-check form-check-inline"
+    .d-flex.mb-3
+      .col-2
+        = f.label :thumbnails, class: "col-form-label"
+      .col-8
+        = f.input :thumbnails, as: :file, label: false, input_html: { multiple: true, direct_upload: true }
+        .d-flex.flex-row.preview-thumbnails
+          - f.object.article.thumbnails.each do |thumbnail|
+            .thumb-item[id="thumbnail-#{thumbnail.id}"]
+              = image_tag thumbnail.variant(resize: "100x100"), class: "img-thumbnail mt-2"
+              = link_to "#", class: "text-white" do
+                i.bi.bi-x-circle.pe-2.icon-delete-thumb[data-id="#{thumbnail.id}"
+                                                        data-article-id="#{f.object.article.slug}"
+                                                        data-bs-toggle="tooltip"
+                                                        data-bs-placement="top"
+                                                        title="Xóa ảnh"]
+    .d-flex.mb-3
+      .col-2
+        = f.label :body, class: "col-form-label"
+      .col-8
+        = f.input :body, label: false, as: :text, input_html: { class: "editor" }
+    .d-flex.justify-content-end
+      = f.submit t(".submit"), id: "save-button", class: "btn btn-primary btn-sm"
+= render "shared/modal_confirm", modal: { id: "article-modal", class_btn: "btn-primary",
+                                          title_modal: title_modal, body_modal: body_modal,
+                                          btn_modal: btn_modal, id_btn: "btn-confirm-article" }

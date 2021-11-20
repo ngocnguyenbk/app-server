@@ -7,6 +7,8 @@ services:
       context: .
       dockerfile: "docker/web/Dockerfile"
     tty: true
+    ports:
+      - "3100:3100"
     volumes:
       - .:/app-server
       - gem_cache:/usr/local/bundle/gems

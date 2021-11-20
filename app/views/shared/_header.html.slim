@@ -1,0 +1,20 @@
+nav.navbar.navbar-expand-lg.navbar-light.bg-light
+  .container
+    = link_to root_path, class: "navbar-brand d-flex"
+      = image_pack_tag("flower-icon.png", size: "30x24", class: "align-top me-2", title: t(".title"))
+      .fw-bold = t(".header_title")
+    button.navbar-toggler[type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggler"]
+      span.navbar-toggler-icon
+    #navbarToggler.collapse.navbar-collapse
+      ul.navbar-nav.me-auto.mb-2.mb-lg-0
+        - @categories.each do |category|
+          li.nav-item.dropdown
+            = active_link_to category, category_path(category)
+            - if category.sub_categories.present?
+              ul.dropdown-menu.shadow
+                - category.sub_categories.each do |sub_category|
+                  li.dropdown-item
+                    = normal_link_to sub_category, category_sub_category_path(category, sub_category)
+      form.d-flex
+        input.form-control.rounded-pill.me-2[type="search" placeholder=t(".search") aria-label="Search"]
+      = link_to t(".admin"), admin_categories_path, class: "nav-link text-secondary"

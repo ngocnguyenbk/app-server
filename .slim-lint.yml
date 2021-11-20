@@ -1,0 +1,15 @@
+exclude:
+  - 'vendor/bundle/**/*.slim'
+  - 'app/views/templates/**/*'
+  - 'app/views/layouts/templates.html.slim'
+  - 'app/views/admin/templates/**/*'
+
+linters:
+  LineLength:
+    enabled: true
+    max: 120
+    exclude:
+      - 'app/views/admin/offices/preview.html.slim'
+      - 'app/views/admin/companies/offices/preview.html.slim'
+      - 'app/views/layouts/mypage.html.slim'
+      - 'app/views/layouts/company_info.html.slim'

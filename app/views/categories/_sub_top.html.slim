@@ -1,0 +1,8 @@
+.d-inline-flex.sub-news-top
+  - articles.each do |article|
+    = link_to article_path(article), title: article.title do
+      .sub-news-top__item
+        .sub-news-top__title.fw-bold
+          = article.decorate.title
+        .sub-news-top__body
+          = article.decorate.body_truncate
